@@ -23,7 +23,23 @@ body {
 
 h1{
   font-size: 8em;
-  color: #ff69b4;
+  color: #0A8F29;
+  padding-bottom:20px;
+  margin:20px;
+}
+
+h3{
+  font-size:2em;
+  text-decoration: underline;
+  padding-bottom:10px;
+  margin:20px;
+}
+
+p{
+  margin:20px;
+}
+img{
+  margin:20px;
 }
 
 ol, ul {
@@ -55,9 +71,10 @@ body {
   color: #2a2a2a; }
 
 a {
-  color: #0388a6; }
+  text-decoration: none;
+  color: #000000; }
   a:hover {
-    color: #009ce0; }
+    color: #0A8F29; }
 
 #main {
   padding: 50px; }
