@@ -19,22 +19,44 @@ time, mark, audio, video {
   vertical-align: baseline; }
 
 body {
+  background-image: url("images/circuitboard.jpg");
+  background-repeat: no-repeat;
+  background-size:cover;
   line-height: 1; }
 
 h1{
+  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+  text-align:center;
   font-size: 8em;
-  color: #0A8F29;
+  color: #fff;
   padding-bottom:20px;
   margin:20px;
 }
 
+
 h3{
+  color:#fff;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
   font-size:2em;
   text-decoration: underline;
   margin-left:20px;
 }
 
 p{
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+  color:#fff;
   margin-left:20px;
 }
 img{
@@ -70,9 +92,20 @@ body {
   color: #2a2a2a; }
 
 a {
+  margin: 20px;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
   text-decoration: none;
-  color: #000000; }
+  color: #fff; }
   a:hover {
+      text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
     color: #0A8F29; }
 
 #main {
