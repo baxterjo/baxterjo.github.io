@@ -36,25 +36,8 @@
   <!-- Static navbar -->
   <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        <a class="navbar-brand" href="index.html">JORDAN BAXTER</a>
+      <div id="navbar">
       </div>
-      <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav navbar-right">
-          <li class="active"><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="educationandexperience.html">Education and Experience</a></li>
-          <li><a href="projects.html" class="smoothscroll">Projects</a></li>
-          <li><a href="contact.html" class="smoothscroll">Contact</a></li>
-        </ul>
-      </div>
-      <!--/.nav-collapse -->
     </div>
   </div>
 
@@ -74,7 +57,7 @@
       <div class="col-lg-8 col-lg-offset-2">
         <h2> JORDAN BAXTER</h2>
         <p>My name is Jordan Baxter and I am an Electrical and Computer Engineering student at Oregon State University.</p>
-        <p>I was born and raised in sunny Bend, Oregon and left when I was eighteen to join the Navy. After serving around the globe for six years, I decided it was time to make a change.</p>
+        <p>I was born and raised in sunny Bend, Oregon and left when I was eighteen to join the Navy. After serving around the globe for six years, I decided it was time to pursue a higher degree.</p>
         <p>In winter of 2016, I started my education in Electrical and Computer Engineering. I intend to graduate in spring of 2020.</p>
         <p>Learn more about my passions and what drives me below.</p>
       </div>
@@ -96,6 +79,8 @@
       <div class="col-lg-4 col-md-4 col-sm-4 gallery">
         <a href="hobbies/underconstruction.html"><img src="img/hobbies/smith_rock.jpg" class="img-responsive"></a>
       </div>
+    </div>
+    <div class="row"></div>
       <div class="col-lg-4 col-md-4 col-sm-4 gallery">
         <a href="hobbies/underconstruction.html"><img src="img/hobbies/fuji_tall.JPG" class="img-responsive"></a>
       </div>
@@ -141,9 +126,17 @@
   <script src="lib/bootstrap/js/bootstrap.min.js"></script>
   <script src="lib/php-mail-form/validate.js"></script>
   <script src="lib/easing/easing.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
 
   <!-- Template Main Javascript File -->
   <script src="js/main.js"></script>
+  <script>
+    $(function(){
+          $('#navbar').load('navbar.html');
+    });
+      
+</script>
 
 </body>
 </html>
