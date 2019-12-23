@@ -1,1 +1,3 @@
-$('#nav').load('navbar.html');
+jQuery(document).ready(function( $ ) {
+  
+});
