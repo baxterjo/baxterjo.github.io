@@ -52,7 +52,7 @@
           <li><a href="../educationandexperience.html">Education and Experience</a></li>
           <li class="active"><a href="index.html" class="smoothscroll">Projects</a></li>
           <li><a href="../contact.html" class="smoothscroll">Contact</a></li>
-          <li><a href="../Resume_05DEC19.pdf" class="smoothscroll">Resume</a></li>
+          <li><a href="../JordanBaxterResume.pdf" class="smoothscroll">Resume</a></li>
         </ul>
       </div>
       <!--/.nav-collapse -->
@@ -65,7 +65,7 @@
       <div class="row">
         <div class="col-lg-6 col-lg-offset-3">
           <h1>8-BIT ALARM CLOCK</h1>
-          <h4>ROLE: LEAD DESIGNER</h4>
+          <h4>ROLE:<br> LEAD DESIGNER,<br>LEAD DEVELOPER</h4>
         </div>
       </div>
     </div>
@@ -78,12 +78,59 @@
       <div class="col-lg-8 col-lg-offset-2">
         <h4>ABOUT THE PROJECT</h4>
         <p>This project was the culmination of several miniature projects completed over the course of a class called 
-            "System Design with Microcontrollers." A class which is infamous among OSU students and alumni as being one of the most difficult classes in the ECE program.</p>
+            "System Design with Microcontrollers." A class which is infamous among OSU students and alumni as being one of the most difficult classes in the ECE program. 
+            The final device is an FM alarm clock with local and remote temperature sensors all build by hand!</p>
+      </div>
+      <div class="col-lg-10 col-lg-offset-1 mt">
+        <img class="img-responsive" src="../img/portfolio/clockboard2.jpg">
+      </div>
+      <div class="col-lg-8 col-lg-offset-2">
+        <h4>THE BRAINS OF THE OPERATION</h4>
+        <p>For this project, the bulk of the computing and I/O power lay in this custom ATMega-128 microcontroller breakout board. This is a standard lab board given to all ECE students at some point in their journey at Oregon State. 
+          Some saw it first in lower level electronics classes, but I received mine for the first time in assembly language and computer architecture. The only other &microC used in this project is for a remote temperature sensor, but more on that later.<br><br>
+          All development done for this project was in a Linux environment. I am a native Windows user, so this meant heavy use of a virtual machine to get the job done.</p>
+      </div>
+      <div class="col-lg-10 col-lg-offset-1 mt">
+        <img class="img-responsive" src="../img/portfolio/clockdispfront.jpg">
+      </div>
+      <div class="col-lg-8 col-lg-offset-2">
+        <h4>START SIMPLE</h4>
+        <p>The first mini-project for this class was simple, set up the tool chain. This may seem trivial to many. But since this was my first time developing in a Linux environment, I had to hit the ground running to keep up.<br><br>
+          After that we had another seemingly small task: get the 7-segment display and buttons working. The LED display on the front works using a multiplexer and persistance of vision. 
+          Meaning only one of the digits is on at any given time. This required the use of a timer interrupt to ensure the correct duty cycle. This same timer was also used to manually debounce the buttons.
+          This was done by checking the buttons once every 2ms and looking for a certain number of active states in a row.</p>
+      </div>
+      <div class="col-lg-10 col-lg-offset-1 mt">
+        <img class="img-responsive" src="../img/portfolio/clockdispback.jpg">
+      </div>
+      <div class="col-lg-8 col-lg-offset-2">
+        <h4>BUILD UPON SUCCESS</h4>
+        <p>After the display and button debouncing were complete, we were to add the rotary encoders and light bar to the display, these were interfaced to the &microC via SPI. 
+          Now, I only had to write to the light bar and read from the encoders. This meant that I could perform the operation simultaneously, by writing to both devices simultaneously 
+          and only connecting the encoders to the MISO net, this meant that I was only performing one SPI operation to perform two tasks!<br>The second large problem of this mini-project was 
+          developing a finite state machine (FSM) for the rotary encoders. The ATMega-128 is a fine piece of hardware with great documentation, and highly reliable architecture. But it lacks certain
+          quality of life features that you might see in a more modern &micro;C. This meant defining my own FSM for the encoders. This FSM tracks the past state of the encoders and compares it to the current state. 
+          Also tracked is their assumed direction based on the starting position compared to the first change seen. The resulting FSM was very robust and ensured the encoder actions were only
+          performed on a solid 'click' in either direction.</p>
+      </div>
+      <div class="col-lg-10 col-lg-offset-1 mt">
+        <img class="img-responsive" src="../img/portfolio/clockperiphboard.jpg">
+      </div>
+      <div class="col-lg-8 col-lg-offset-2">
+        <h4>STARTING TO LOOK LIKE A CLOCK<br>(DEFINITELY DOESN'T LOOK LIKE A BOMB)</h4>
+        <p>Up until this point, my clock didn't keep time. This portion of the project remedies that and then some! This mini-project saw the addition of time setting, 
+            time keeping, and alarm setting. But what is the point of setting an alarm unless you know when it's going off? Oh yea, this mini-project also had me building a pre-amp
+            for an audio amplifier that made a square wave alarm sound produced by a timer and an I/O pin. This portion of the clock was by-far the most challenging part of the project.</p>
+      </div>
+      <div class="col-lg-10 col-lg-offset-1 mt">
+        <img class="img-responsive" src="../img/portfolio/clockremtemp.jpg">
+      </div>
+      <div class="col-lg-8 col-lg-offset-2">
+        <h4>FANCY FEATURES</h4>
+        <p>Here is where the second &micro;C comes into the project. </p>
       </div>
       <div class="col-lg-10 col-lg-offset-1 mt">
         <img class="img-responsive" src="../img/portfolio/clock1.jpg">
-        <br>
-        <img class="img-responsive" src="../img/pr02.jpg">
       </div>
 
     </div>
