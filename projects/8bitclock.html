@@ -119,18 +119,48 @@
       <div class="col-lg-8 col-lg-offset-2">
         <h4>STARTING TO LOOK LIKE A CLOCK<br>(DEFINITELY DOESN'T LOOK LIKE A BOMB)</h4>
         <p>Up until this point, my clock didn't keep time. This portion of the project remedies that and then some! This mini-project saw the addition of time setting, 
-            time keeping, and alarm setting. But what is the point of setting an alarm unless you know when it's going off? Oh yea, this mini-project also had me building a pre-amp
-            for an audio amplifier that made a square wave alarm sound produced by a timer and an I/O pin. This portion of the clock was by-far the most challenging part of the project.</p>
+            time keeping, and alarm setting. But what is the point of setting an alarm unless you know when it's going off? Oh yea, this mini-project also had me building a voltage no pre-amp
+            for the system audio amplifier. This was needed because this clock was going to have alarm and radio functions. The alarm had a range from 0V-5V, and the radio a range of &plusmn;250mV.
+            These signals had to be normalized to ensure proper power was being sent to the speakers. This portion of the clock was by-far the most challenging part of the project.</p>
       </div>
       <div class="col-lg-10 col-lg-offset-1 mt">
         <img class="img-responsive" src="../img/portfolio/clockremtemp.jpg">
       </div>
       <div class="col-lg-8 col-lg-offset-2">
         <h4>FANCY FEATURES</h4>
-        <p>Here is where the second &micro;C comes into the project. </p>
+        <p>Here is where the second &micro;C comes into the project. This is a remote temperature sensor that is operated by an arduino nano. 
+          This class is very anti-easy though, so our first task was to wipe the arduino bootloader off of the &micro;C and program it from scratch. 
+          This part of the system uses I2C to get the temperature from the connected temperature sensor and send it via UART/RS-232 transceiver that sends the data to the main system.
+          The main system board has a mirrored transceiver on its end, so the whole process "looks" like UART to both &micro;Cs. <br><br>The use of the nano was new this year compared to previous years, 
+          and the I2C temperature sensor was new as well. So, the instructor and TAs had no experience assisting students with it. Luckily, I had access to a Saleae logic analyser and was able to 
+          quickly troubleshoot some of the interfacing problems that were common on this half of the system. As a result, I was able to quickly write up a "best practices" report to share with my peers,
+          resulting in the class progressing in a timely manner.</p>
+      </div>
+      <div class="col-lg-10 col-lg-offset-1 mt">
+        <img class="img-responsive" src="../img/portfolio/clock2.jpg">
+      </div>
+      <div class="col-lg-8 col-lg-offset-2">
+        <h4>MUSIC TO MY EARS</h4>
+        <p>After implementing the remote temperature sensor, I had to return to audio. This portion of the project had me implementing the final piece of hardware into the system, an FM radio receiver.
+          This particular radio receiver (I won't name names) had one of the poorer datasheets I have seen in my limited time in embedded systems. The IC was likely made without a field applications or test engineer on the team. 
+          This reinforced my belief that a piece of technology can be beautifully made, but if you cannot communicate its usefulness or how to use it. The technology will not succeed. 
+          <br>But, after much frustration and troubleshooting, the radio worked! And I have never been more happy to hear country music.
+          </p>
       </div>
       <div class="col-lg-10 col-lg-offset-1 mt">
         <img class="img-responsive" src="../img/portfolio/clock1.jpg">
+      </div>
+      <div class="col-lg-8 col-lg-offset-2">
+        <h4>A (HIDEOUSLY) WONDERFUL CLOCK</h4>
+        <p>Although this clock doesn't look pretty, it is likely the most time and effort I have spent on a project as of this writing (31MAR2020). 
+          It represents hundreds of hours of work and something that I built from scratch with very few pre-built libraries, no freely given schematics, and only a handful of pre-fabricated PCBs.
+          <br><br> This project educated me (the hard way) about knowing and planning the full scope of a project before writing one line of code or placing one part on a schematic.
+          Not knowing the full scope of the project at the beginning resulted in more time spent trying to "future proof" hardware and many firmware "bandages" finding their way into the final code.
+          Had this class lasted a week longer, I likely would have spent that time refactoring much of the code into separate files and functions based on hardware type, and generally cleaning things up. But a ten week term is a ten week term.
+          And sometimes you just need to call something done. <br><br> 
+          The instructor of this course was insistent that we not use any CAD for the schematics and that much of the work be done in a way that I can best describe as "rugged." 
+          So, if you want to see some hand drawn schematics and the final code for this project. Checkout my <a href="https://github.com/jbaxter25/ece473-final">final submission git repo!</a> 
+          For something a little "prettier" check out my <a href="btswitch.html">bluetooth light switch project.</a></p>
       </div>
 
     </div>
