@@ -15,7 +15,7 @@ asset_dir = "public"
 [web.app]
 
 # HTML title tag content
-title = "project_name"
+title = "Jordan Baxter"
 
 [web.watcher]
 
@@ -29,7 +29,7 @@ watch_path = ["src", "public"]
 [web.resource]
 
 # CSS style file
-style = []
+style = ["css/style.css"]
 
 # Javascript code file
 script = []
