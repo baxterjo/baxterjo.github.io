@@ -76,8 +76,8 @@ h6 {
   font-weight: 700;
 }
 
-.navbar-default .navbar-brand,
-.navbar-default .navbar-brand:hover {
+.navbar-default .navbar-brand>a,
+.navbar-default .navbar-brand>a:hover {
   color: #1abc9c;
 }
 
