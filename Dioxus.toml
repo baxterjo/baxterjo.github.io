@@ -30,7 +30,12 @@ watch_path = ["src", "public", "css"]
 [web.resource]
 
 # CSS style file
-style = ["./css/style.css"]
+style = [
+    "https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700",
+    "lib/bootstrap/css/bootstrap.min.css",
+    "lib/font-awesome/css/font-awesome.min.css",
+    "./css/style.css",
+]
 
 # Javascript code file
 script = []
