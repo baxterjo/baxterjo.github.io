@@ -21,6 +21,7 @@ title = "Jordan Baxter"
 
 # When watcher is triggered, regenerate the `index.html`
 reload_html = true
+index_on_404 = true
 
 # Which files or dirs will be monitored
 watch_path = ["src", "public"]
