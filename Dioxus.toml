@@ -24,13 +24,13 @@ reload_html = true
 index_on_404 = true
 
 # Which files or dirs will be monitored
-watch_path = ["src", "public"]
+watch_path = ["src", "public", "css"]
 
 # Include style or script assets
 [web.resource]
 
 # CSS style file
-style = ["css/style.css"]
+style = ["./css/style.css"]
 
 # Javascript code file
 script = []
