@@ -8,11 +8,11 @@ use dioxus_router::prelude::*;
 pub fn NavBar(cx: Scope) -> Element {
     render! {
         nav {
-            class: "navbar navbar-default navbar-fixed-top",
+            class: "border-transparent bg-black top-0 border-b-1 border-x-0 border-t-0 rounded-none fixed inset-x-0 z-1030  min-h-50 mb-20",
             div {
                 class: "container",
                 div {
-                    class:"navbar-header",
+                    class:"mx-0 float-left",
                     li {
                         class: "navbar-brand",
                         Link {
