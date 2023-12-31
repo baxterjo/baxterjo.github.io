@@ -3,21 +3,25 @@ pub mod page_not_found;
 use crate::router::Route;
 use dioxus::prelude::*;
 use dioxus_router::prelude::*;
+use log::debug;
 
 #[component]
 pub fn NavBar(cx: Scope) -> Element {
     render! {
         nav {
-            class: "navbar navbar-default navbar-fixed-top",
+            class: "navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top",
             div {
                 class: "container",
                 div {
                     class:"navbar-header",
                     button {
                         r#type: "button",
-                        class: "navbar-toggle",
-                        "data-toggle":"collapse",
-                        "data-target":".navbar-collapse"
+                        class: "navbar-toggler",
+                        "data-bs-toggle":"collapse",
+                        "data-bs-target":".navbar-collapse",
+                        span {
+                            class: "navbar-toggler-icon"
+                        }
                     }
                     Link {
                         class: "navbar-brand",
@@ -29,52 +33,30 @@ pub fn NavBar(cx: Scope) -> Element {
                 div {
                     class: "navbar-collapse collapse",
                     ul {
-                        class: "nav navbar-nav navbar-right",
+                        class: "navbar-nav ms-auto",
                         li {
-                            Link {
-                                class:"smoothscroll",
-                                // The Link component will navigate to the route specified
-                                // in the target prop which is checked to exist at compile time
-                                to: Route::Home {},
-                                "Home"
-                            }
+                            class: "nav-item",
+                            NavLink{ route_to: Route::Home{}}
                         }
                         li {
-                            Link {
-                                class:"smoothscroll",
-                                // The Link component will navigate to the route specified
-                                // in the target prop which is checked to exist at compile time
-                                to: Route::PageNotFound {route: vec!["About".to_string()]},
-                                "About"
-                            }
+                            class: "nav-item",
+                            NavLink { route_to: Route::About {  }}
                         }
                         li {
-                            Link {
-                                class:"smoothscroll",
-                                to: Route::PageNotFound { route: vec!["Experience".to_string()] },
-                                "Experience"
-                            }
+                            class: "nav-item",
+                            NavLink { route_to: Route::Experience {  }}
                         }
                         li {
-                            Link {
-                                class:"smoothscroll",
-                                to: Route::PageNotFound { route: vec!["Projects".to_string()] },
-                                "Projects"
-                            }
+                            class: "nav-item",
+                            NavLink { route_to: Route::Projects {  }}
                         }
                         li {
-                            Link {
-                                class:"smoothscroll",
-                                to: Route::PageNotFound { route: vec!["Education".to_string()] },
-                                "Education"
-                            }
+                            class: "nav-item",
+                            NavLink { route_to: Route::Education {  }}
                         }
                         li {
-                            Link {
-                                class:"smoothscroll",
-                                to: Route::PageNotFound { route: vec!["Contact".to_string()] },
-                                "Contact"
-                            }
+                            class: "nav-item",
+                            NavLink { route_to: Route::Contact {  }}
                         }
                     }
                 }
@@ -83,6 +65,37 @@ pub fn NavBar(cx: Scope) -> Element {
 
 
         }
+        // debug!("{:#?}", Route::SITE_MAP)
         Outlet::<Route> {}
+    }
+}
+
+#[component]
+fn NavLink(cx: Scope, route_to: Route) -> Element {
+    let current_route: Route = use_route(&cx).unwrap();
+    let route_name = if *route_to == (Route::Home {}) {
+        "Home".to_string()
+    } else {
+        capitalize(route_to.to_string().replace("/", "").as_str())
+    };
+    let link_class = if *route_to == current_route {
+        "nav-link active"
+    } else {
+        "nav-link"
+    };
+    render! {
+        Link {
+            class: link_class,
+            to: route_to.clone(),
+            route_name,
+        }
+    }
+}
+
+fn capitalize(s: &str) -> String {
+    let mut c = s.chars();
+    match c.next() {
+        None => String::new(),
+        Some(f) => f.to_uppercase().collect::<String>() + c.as_str(),
     }
 }
