@@ -76,42 +76,42 @@ h6 {
   font-weight: 700;
 }
 
-.navbar-default .navbar-brand,
-.navbar-default .navbar-brand:hover {
+.navbar-dark .navbar-brand,
+.navbar-dark .navbar-brand:hover {
   color: #1abc9c;
 }
 
-.navbar-default {
+.navbar-dark {
   border-color: transparent;
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.navbar-default .navbar-nav>.active>a,
-.navbar-default .navbar-nav>.active>a:hover,
-.navbar-default .navbar-nav>.active>a:focus {
+.navbar-dark .navbar-nav>.active>a,
+.navbar-dark .navbar-nav>.active>a:hover,
+.navbar-dark .navbar-nav>.active>a:focus {
   color: #1abc9c;
   background-color: transparent;
 }
 
-.navbar-default .navbar-nav>li>a {
+.navbar-dark .navbar-nav>li>a {
   color: #fff;
 }
 
-.navbar-default .navbar-nav>li>a:hover,
-.navbar-default .navbar-nav>li>a:focus {
+.navbar-dark .navbar-nav>li>a:hover,
+.navbar-dark .navbar-nav>li>a:focus {
   color: #1abc9c;
 }
 
-.navbar-default .navbar-toggle {
+.navbar-dark .navbar-toggle {
   border: none;
   border-color: #fff;
 }
 
-.navbar-default .navbar-toggle:hover {
+.navbar-dark .navbar-toggle:hover {
   background: #666;
 }
 
-.navbar-default .navbar-toggle .icon-bar {
+.navbar-dark .navbar-toggle .icon-bar {
   background-color: #fff;
 }
 
@@ -197,12 +197,10 @@ h6 {
   width: 100%;
 
   -webkit-background-size: 100%;
-  -moz-background-size: 100%;
   -o-background-size: 100%;
   background-size: 100%;
 
   -webkit-background-size: cover;
-  -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
@@ -232,12 +230,10 @@ h6 {
   width: 100%;
 
   -webkit-background-size: 100%;
-  -moz-background-size: 100%;
   -o-background-size: 100%;
   background-size: 100%;
 
   -webkit-background-size: cover;
-  -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
@@ -253,12 +249,10 @@ h6 {
   width: 100%;
 
   -webkit-background-size: 100%;
-  -moz-background-size: 100%;
   -o-background-size: 100%;
   background-size: 100%;
 
   -webkit-background-size: cover;
-  -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
