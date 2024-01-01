@@ -3,6 +3,32 @@ use dioxus::prelude::*;
 #[component]
 pub fn About(cx: Scope) -> Element {
     render! {
-        h1 { "This is the about page"  }
+        AboutHeaderWrap {}
+
+    }
+}
+
+#[component]
+fn AboutHeaderWrap(cx: Scope) -> Element {
+    render! {
+        div {
+            id: "work-wrap-non-bs",
+            div {
+                class: "container",
+                div {
+                    class: "row justify-content-center",
+                    div {
+                        class: "col-lg-6",
+                        h4 {
+                            "SO YOUR'RE CURIOUS"
+                        }
+                        h1 {
+                            "ABOUT ME"
+                        }
+
+                    }
+                }
+            }
+        }
     }
 }
