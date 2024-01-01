@@ -71,6 +71,43 @@ h6 {
   color: #4a4a4a;
 }
 
+a:link { 
+  text-decoration: none; 
+} 
+a:visited { 
+  text-decoration: none; 
+} 
+a:hover { 
+  text-decoration: none; 
+} 
+a:active { 
+  text-decoration: none; 
+}
+
+.card-img-overlay:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.card-img-overlay:hover > .card-text {
+  color: black;
+}
+
+.card-img-overlay > .card-text {
+  color: rgba(0, 0, 0, 0);
+}
+
+
+.card-title {
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  color: white !important;
+  text-align: center;
+}
+
+
+/* .card-text:hover {
+  color: rgba(0, 0, 0, 1);
+} */
+
 
 .navbar-brand {
   font-weight: 700;
@@ -119,7 +156,7 @@ h6 {
    Wrap Sections
    ========================================================================== */
 
-#headerwrap {
+#home-page-header-wrap-non-bs {
   background: url(../img/back.jpg) no-repeat center top;
   margin-top: -70px;
   padding-top: 250px;
@@ -140,7 +177,7 @@ h6 {
   background-size: cover;
 }
 
-#headerwrap h1 {
+#home-page-header-wrap-non-bs h1 {
   color: #ffffff;
   padding-top: 10px;
   padding-bottom: 20px;
@@ -149,13 +186,14 @@ h6 {
   font-weight: bold;
 }
 
-#headerwrap h4 {
+#home-page-header-wrap-non-bs h4 {
   font-weight: 400;
-  color: #ffffff
+  color: #ffffff;
+  font-size: 1.125rem;
 }
 
 @media (max-width: 768px) {
-  #headerwrap {
+  #home-page-header-wrap-non-bs {
     padding-top: 180px;
   }
 }
@@ -186,7 +224,7 @@ h6 {
   margin-left: 10px;
 }
 
-#workwrap {
+#work-wrap-non-bs {
   background: url(../img/work.jpg) no-repeat center top;
   margin-top: -70px;
   padding-top: 250px;
@@ -205,7 +243,7 @@ h6 {
   background-size: cover;
 }
 
-#workwrap h1 {
+#work-wrap-non-bs h1 {
   color: #ffffff;
   padding-top: 10px;
   padding-bottom: 20px;
@@ -214,9 +252,11 @@ h6 {
   font-weight: bold;
 }
 
-#workwrap h4 {
+#work-wrap-non-bs h4 {
   font-weight: 400;
-  color: #ffffff
+  color: #ffffff;
+  font-size: 1.125rem;
+
 }
 
 #aboutwrap {
@@ -239,7 +279,7 @@ h6 {
 }
 
 #projectswrap {
-  background: url(../img/projblackandwhite.jpg) no-repeat center top;
+  background: url(../img/work.jpg) no-repeat center top;
   margin-top: -70px;
   padding-top: 250px;
   text-align: center;

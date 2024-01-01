@@ -1,12 +1,16 @@
-use crate::components::{page_not_found::PageNotFound, NavBar};
+use crate::components::{nav_bar::NavBar, page_not_found::PageNotFound};
 use crate::pages::{
-    about::About, contact::Contact, education::Education, experience::Experience, home::Home,
-    projects::Projects,
+    about::About,
+    contact::Contact,
+    education::Education,
+    experience::Experience,
+    home::Home,
+    projects::{alarm_clock::AlarmClock, Projects},
 };
 use dioxus::prelude::*;
 use dioxus_router::prelude::*;
 
-#[derive(Routable, Clone, PartialEq)]
+#[derive(Routable, Clone, PartialEq, Debug)]
 #[rustfmt::skip]
 pub enum Route {
     #[layout(NavBar)]
@@ -18,6 +22,8 @@ pub enum Route {
         Experience{},
         #[route("/projects", Projects)]
         Projects{},
+        #[route("/projects/alarm-clock")]
+        AlarmClock {},
         #[route("/education", Education)]
         Education{},
         #[route("/contact", Contact)]
