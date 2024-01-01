@@ -20,7 +20,7 @@ fn AboutHeaderWrap(cx: Scope) -> Element {
                     div {
                         class: "col-lg-6",
                         h4 {
-                            "SO YOUR'RE CURIOUS"
+                            "SO YOU'RE CURIOUS"
                         }
                         h1 {
                             "ABOUT ME"
