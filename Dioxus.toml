@@ -17,9 +17,6 @@ asset_dir = "public"
 # HTML title tag content
 title = "Jordan Baxter"
 
-# [bundle]
-# identifier = "baxterjo_webapp"
-# icon = ["./public/img/favicon.png"]
 
 [web.watcher]
 

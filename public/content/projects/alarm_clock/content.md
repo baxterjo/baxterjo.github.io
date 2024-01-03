@@ -13,4 +13,5 @@ The final device is an FM alarm clock with local and remote temperature sensors 
 - Linux Operating System
 - Debugger
 
+
 ![](../img/portfolio/clock1.jpg)

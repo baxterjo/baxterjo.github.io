@@ -103,10 +103,10 @@ a:active {
   text-align: center;
 }
 
-
-/* .card-text:hover {
-  color: rgba(0, 0, 0, 1);
-} */
+.content p>img {
+  max-width: 100%;
+  max-height: 100%;
+}
 
 
 .navbar-brand {
