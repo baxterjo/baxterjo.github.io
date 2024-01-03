@@ -26,10 +26,10 @@ pub fn AlarmClock(cx: Scope) -> Element {
                 class: "row justify-content-center",
                 div {
                     class: "col-lg-8",
-                    Markdown{
-                        class: "content centered img-fluid container",
-                        content: include_str!(concat!(env!("CARGO_MANIFEST_DIR"),"/public/content/projects/alarm_clock/content.md"))
-                    }
+                    // Markdown{
+                    //     class: "content centered img-fluid container",
+                    //     content: include_str!(concat!(env!("CARGO_MANIFEST_DIR"),"/public/content/projects/alarm_clock/content.md"))
+                    // }
 
                 }
             }

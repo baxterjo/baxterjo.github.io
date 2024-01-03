@@ -1,9 +1,13 @@
 use anyhow::Result;
+use include_dir::{include_dir, Dir};
 use log::error;
 use serde::Deserialize;
 use std::{collections::HashMap, fs, path::PathBuf};
 use toml::value::Datetime;
 use urlencoding::encode;
+
+const CONTENT_DIR: Dir<'_> = include_dir!("$CARGO_MANIFEST_DIR/content");
+
 #[derive(Debug, Clone)]
 pub struct SiteContent {
     pub experience: HashMap<String, ContentSegment>,
@@ -30,15 +34,33 @@ impl SiteContent {
     pub fn new(content_dir: &str) -> SiteContent {
         let mut experience_dir = PathBuf::from(content_dir);
         experience_dir.push("experience");
-        let experience = get_content_map(experience_dir).unwrap_or_default();
+        let experience = match get_content_map(experience_dir) {
+            Ok(x) => x,
+            Err(err) => {
+                error!("Got error while trying to fetch experience content: {err}");
+                HashMap::<String, ContentSegment>::new()
+            }
+        };
 
         let mut education_dir = PathBuf::from(content_dir);
         education_dir.push("education");
-        let education = get_content_map(education_dir).unwrap_or_default();
+        let education = match get_content_map(education_dir) {
+            Ok(x) => x,
+            Err(err) => {
+                error!("Got error while trying to fetch education content: {err}");
+                HashMap::<String, ContentSegment>::new()
+            }
+        };
 
         let mut projects_dir = PathBuf::from(content_dir);
         projects_dir.push("projects");
-        let projects = get_content_map(projects_dir).unwrap_or_default();
+        let projects = match get_content_map(projects_dir) {
+            Ok(x) => x,
+            Err(err) => {
+                error!("Got error while trying to fetch projects content: {err}");
+                HashMap::<String, ContentSegment>::new()
+            }
+        };
 
         SiteContent {
             experience,

@@ -80,7 +80,6 @@ pub fn HardwareGallery(cx: Scope, max_cards: Option<usize>) -> Element {
         }
     });
 
-
     render! {
         div {
             class: "py-5 bg-light",
@@ -115,8 +114,7 @@ pub fn SoftwareGallery(cx: Scope, max_cards: Option<usize>) -> Element {
             img_path: "img/portfolio/antennasimulator.gif",
             route_to: Route::PageNotFound { route: vec!["projects/antenna-simulator".to_string()] },
             description: "An antenna simulation application written in python that uses the tkinter toolkit to render a GUI."
-    },
-    
+        }
     ];
 
     cards.truncate(max_cards);
