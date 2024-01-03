@@ -1,13 +1,13 @@
 use crate::errors::WebAppError;
 use anyhow::Result;
-use include_dir::{include_dir, Dir, DirEntry, File};
-use log::{debug, error, warn};
+use include_dir::{include_dir, Dir, DirEntry};
+use log::{debug, error};
 use serde::Deserialize;
-use std::{collections::HashMap, fs, path::PathBuf};
+use std::collections::HashMap;
 use toml::value::Datetime;
 use urlencoding::encode;
 
-const CONTENT_DIR: Dir<'_> = include_dir!("$CARGO_MANIFEST_DIR/content");
+const CONTENT_DIR: Dir<'_> = include_dir!("$CARGO_MANIFEST_DIR/site_content");
 
 #[derive(Debug, Clone)]
 pub struct SiteContent {

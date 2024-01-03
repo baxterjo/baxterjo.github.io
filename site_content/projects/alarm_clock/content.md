@@ -1,4 +1,3 @@
-
 #### ABOUT THE PROJECT
 
 This project was the culmination of several miniature projects completed over the course of a class called
