@@ -44,25 +44,25 @@ pub fn HardwareGallery(cx: Scope, max_cards: Option<usize>) -> Element {
         GalleryCardArgs {
         title: "8-Bit Alarm Clock",
         img_path: "img/portfolio/clock1.jpg",
-        route_to: Route::AlarmClock {},
+        route_to: Route::AlarmClockWrap {},
         description: "An alarm clock made from scratch with an 8-bit AVR development board and jellybean parts."
     },
     GalleryCardArgs {
         title: "8-Bit Alarm Clock",
         img_path: "img/portfolio/clock1.jpg",
-        route_to: Route::AlarmClock {},
+        route_to: Route::AlarmClockWrap {},
         description: "An alarm clock made from scratch with an 8-bit AVR development board and jellybean parts."
     },
     GalleryCardArgs {
         title: "8-Bit Alarm Clock",
         img_path: "img/portfolio/clock1.jpg",
-        route_to: Route::AlarmClock {},
+        route_to: Route::AlarmClockWrap {},
         description: "An alarm clock made from scratch with an 8-bit AVR development board and jellybean parts."
     },
     GalleryCardArgs {
         title: "8-Bit Alarm Clock",
         img_path: "img/portfolio/clock1.jpg",
-        route_to: Route::AlarmClock {},
+        route_to: Route::AlarmClockWrap {},
         description: "An alarm clock made from scratch with an 8-bit AVR development board and jellybean parts."
     }
     ];

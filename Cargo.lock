@@ -111,6 +111,7 @@ dependencies = [
  "env_logger",
  "include_dir",
  "log",
+ "pulldown-cmark",
  "serde",
  "thiserror",
  "toml",

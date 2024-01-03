@@ -5,7 +5,7 @@ use crate::pages::{
     education::Education,
     experience::Experience,
     home::Home,
-    projects::{alarm_clock::AlarmClock, Projects},
+    projects::{alarm_clock::AlarmClockWrap, Projects},
 };
 use dioxus::prelude::*;
 use dioxus_router::prelude::*;
@@ -23,7 +23,7 @@ pub enum Route {
         #[route("/projects", Projects)]
         Projects{},
         #[route("/projects/alarm-clock")]
-        AlarmClock {},
+        AlarmClockWrap {},
         #[route("/education", Education)]
         Education{},
         #[route("/contact", Contact)]

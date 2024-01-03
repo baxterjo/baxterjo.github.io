@@ -1,8 +1,25 @@
+use crate::content::SiteContent;
+use crate::markdown::Markdown;
 use dioxus::prelude::*;
-use dioxus_markdown::Markdown;
 
 #[component]
-pub fn AlarmClock(cx: Scope) -> Element {
+pub fn AlarmClockWrap(cx: Scope) -> Element {
+    log::debug!("Rendering alarm clock from markdown in dynamic site content...");
+
+    let content = &*use_shared_state::<SiteContent>(cx).unwrap().read();
+    let markdown_owned = content
+        .projects
+        .get("alarm_clock")
+        .unwrap()
+        .markdown
+        .clone();
+    render! {
+        AlarmClock{md: markdown_owned}
+    }
+}
+
+#[component]
+pub fn AlarmClock(cx: Scope, md: String) -> Element {
     render! {
         div {
             id: "work-wrap-non-bs",
@@ -26,10 +43,10 @@ pub fn AlarmClock(cx: Scope) -> Element {
                 class: "row justify-content-center",
                 div {
                     class: "col-lg-8",
-                    // Markdown{
-                    //     class: "content centered img-fluid container",
-                    //     content: include_str!(concat!(env!("CARGO_MANIFEST_DIR"),"/public/content/projects/alarm_clock/content.md"))
-                    // }
+                    Markdown{
+                        class: "content centered img-fluid container",
+                        content: md.to_string()
+                    }
 
                 }
             }
