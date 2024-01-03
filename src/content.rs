@@ -1,6 +1,7 @@
+use crate::errors::WebAppError;
 use anyhow::Result;
-use include_dir::{include_dir, Dir};
-use log::error;
+use include_dir::{include_dir, Dir, DirEntry, File};
+use log::{debug, error, warn};
 use serde::Deserialize;
 use std::{collections::HashMap, fs, path::PathBuf};
 use toml::value::Datetime;
@@ -31,9 +32,8 @@ pub struct ContentConfig {
 }
 
 impl SiteContent {
-    pub fn new(content_dir: &str) -> SiteContent {
-        let mut experience_dir = PathBuf::from(content_dir);
-        experience_dir.push("experience");
+    pub fn new() -> SiteContent {
+        let experience_dir = CONTENT_DIR.get_dir("experience").unwrap();
         let experience = match get_content_map(experience_dir) {
             Ok(x) => x,
             Err(err) => {
@@ -42,8 +42,7 @@ impl SiteContent {
             }
         };
 
-        let mut education_dir = PathBuf::from(content_dir);
-        education_dir.push("education");
+        let education_dir = CONTENT_DIR.get_dir("education").unwrap();
         let education = match get_content_map(education_dir) {
             Ok(x) => x,
             Err(err) => {
@@ -52,8 +51,7 @@ impl SiteContent {
             }
         };
 
-        let mut projects_dir = PathBuf::from(content_dir);
-        projects_dir.push("projects");
+        let projects_dir = CONTENT_DIR.get_dir("projects").unwrap();
         let projects = match get_content_map(projects_dir) {
             Ok(x) => x,
             Err(err) => {
@@ -71,67 +69,81 @@ impl SiteContent {
 }
 
 impl ContentSegment {
-    pub fn try_new(content_segment_dir: PathBuf) -> Result<ContentSegment> {
-        let mut config_path = content_segment_dir.clone();
+    pub fn try_new(content_segment_dir: &Dir) -> Result<ContentSegment> {
+        debug!("Fetching content segment from: {:#?}", content_segment_dir);
+        let mut config_path = content_segment_dir.path().to_path_buf();
         config_path.push("config.toml");
+        let config_file =
+            content_segment_dir
+                .get_file(&config_path)
+                .ok_or(WebAppError::FileNotExist(format!(
+                    "{}",
+                    config_path.display()
+                )))?;
 
-        let config_str = fs::read_to_string(config_path)?;
-        let config: ContentConfig = toml::from_str(config_str.as_str())?;
+        let config: ContentConfig = toml::from_str(
+            config_file
+                .contents_utf8()
+                .ok_or(WebAppError::NotValidConfig("Not UTF-8 file".to_string()))?,
+        )?;
 
-        let mut markdown_path = content_segment_dir.clone();
+        let mut markdown_path = content_segment_dir.path().to_path_buf();
         markdown_path.push("content.md");
+        let markdown_file =
+            content_segment_dir
+                .get_file(&markdown_path)
+                .ok_or(WebAppError::FileNotExist(format!(
+                    "{}",
+                    markdown_path.display()
+                )))?;
 
-        let markdown = fs::read_to_string(markdown_path)?;
+        let markdown: String = markdown_file
+            .contents_utf8()
+            .ok_or(WebAppError::NotValidConfig("Not UTF-8 file".to_string()))?
+            .to_string();
+
         Ok(ContentSegment { config, markdown })
     }
 }
 
-fn get_content_map(content_type_path: PathBuf) -> Result<HashMap<String, ContentSegment>> {
+fn get_content_map(content_type_path: &Dir) -> Result<HashMap<String, ContentSegment>> {
     let mut output: HashMap<String, ContentSegment> = HashMap::new();
-    for entry in fs::read_dir(content_type_path.clone())? {
-        let path = match entry {
-            Ok(x) => x.path(),
-            Err(err) => {
-                error!(
-                    "Got an error while trying gather content from {} - {}",
-                    content_type_path.display(),
-                    err
-                );
-                if cfg!(test) {
-                    Err(err)?;
-                }
-                continue;
+    for entry in content_type_path.entries() {
+        match entry {
+            DirEntry::Dir(dir) => {
+                let path = entry.path();
+                let segment = match ContentSegment::try_new(dir) {
+                    Ok(x) => x,
+                    Err(err) => {
+                        log::error!(
+                            "Got an error while trying to parse content at {} - {}",
+                            path.display(),
+                            err
+                        );
+                        if cfg!(test) {
+                            Err(err)?;
+                        }
+                        continue;
+                    }
+                };
+                let content_id = match path.file_stem() {
+                    Some(x) => x.to_string_lossy().to_string(),
+                    None => {
+                        error!(
+                            "Got error while trying to get content_id from suffix of {}",
+                            path.display()
+                        );
+                        if cfg!(test) {
+                            panic!("File name does not work! {}", path.display());
+                        }
+                        continue;
+                    }
+                };
+                let content_id = encode(&content_id).into_owned();
+                output.insert(content_id, segment);
             }
-        };
-        let segment = match ContentSegment::try_new(path.clone()) {
-            Ok(x) => x,
-            Err(err) => {
-                log::error!(
-                    "Got an error while trying to parse content at {} - {}",
-                    path.display(),
-                    err
-                );
-                if cfg!(test) {
-                    Err(err)?;
-                }
-                continue;
-            }
-        };
-        let content_id = match path.file_stem() {
-            Some(x) => x.to_string_lossy().to_string(),
-            None => {
-                error!(
-                    "Got error while trying to get content_id from suffix of {}",
-                    path.display()
-                );
-                if cfg!(test) {
-                    panic!("File name does not work! {}", path.display());
-                }
-                continue;
-            }
-        };
-        let content_id = encode(&content_id).into_owned();
-        output.insert(content_id, segment);
+            DirEntry::File(file) => {}
+        }
     }
     Ok(output)
 }
@@ -142,18 +154,14 @@ mod test {
     #[test]
     fn test_existing_content_directory_loads_content_correctly() {
         let _ = env_logger::try_init();
-
-        let content_dir = concat!(env!("CARGO_MANIFEST_DIR"), "/public/content");
-        let mut experience_dir = PathBuf::from(content_dir);
-        experience_dir.push("experience");
+        log::debug!("Content Dir: {:#?}", CONTENT_DIR);
+        let experience_dir = CONTENT_DIR.get_dir("experience").unwrap();
         let experience = get_content_map(experience_dir).unwrap();
 
-        let mut education_dir = PathBuf::from(content_dir);
-        education_dir.push("education");
+        let education_dir = CONTENT_DIR.get_dir("education").unwrap();
         let education = get_content_map(education_dir).unwrap();
 
-        let mut projects_dir = PathBuf::from(content_dir);
-        projects_dir.push("projects");
+        let projects_dir = CONTENT_DIR.get_dir("projects").unwrap();
         let projects = get_content_map(projects_dir).unwrap();
 
         let site_content = SiteContent {
