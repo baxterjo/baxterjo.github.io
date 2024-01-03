@@ -12,6 +12,8 @@ setup_dev: .git/hooks/pre-commit
 
 .PHONY: pre_commit
 pre_commit: build docs/404.html
+	cargo test
+
 
 .PHONY: build
 	dx build --release
