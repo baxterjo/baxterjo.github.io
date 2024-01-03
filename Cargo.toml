@@ -14,6 +14,12 @@ log = "0.4.20"
 # markdown = "1.0.0-alpha.16"
 wasm-logger = "0.2.0"
 dioxus_markdown = { version = "0.2.0", git = "https://github.com/DioxusLabs/markdown.git" }
+toml = "0.8.8"
+serde = { version = "1.0.194", features = ["derive"] }
+walkdir = "2.4.0"
+thiserror = "1.0.56"
+anyhow = "1.0.79"
+urlencoding = "2.1.3"
 
 [dev-dependencies]
 env_logger = "0.10.1"
