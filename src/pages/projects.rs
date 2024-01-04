@@ -1,11 +1,13 @@
 pub mod alarm_clock;
+pub mod project_detail;
 use dioxus::prelude::*;
 
 use crate::components::{GalleryCard, GalleryCardArgs};
+use crate::content::SiteContent;
 use crate::router::Route;
 
 #[component]
-pub fn Projects(cx: Scope) -> Element {
+pub fn ProjectsRoot(cx: Scope) -> Element {
     render! {
         ProjectHeaderWrap {}
         HardwareGallery {}
@@ -39,43 +41,37 @@ fn ProjectHeaderWrap(cx: Scope) -> Element {
 
 #[component]
 pub fn HardwareGallery(cx: Scope, max_cards: Option<usize>) -> Element {
-    let max_cards = max_cards.unwrap_or(usize::MAX);
-    let mut hardware_cards: Vec<GalleryCardArgs> = vec![
-        GalleryCardArgs {
-        title: "8-Bit Alarm Clock",
-        img_path: "img/portfolio/clock1.jpg",
-        route_to: Route::AlarmClockWrap {},
-        description: "An alarm clock made from scratch with an 8-bit AVR development board and jellybean parts."
-    },
-    GalleryCardArgs {
-        title: "8-Bit Alarm Clock",
-        img_path: "img/portfolio/clock1.jpg",
-        route_to: Route::AlarmClockWrap {},
-        description: "An alarm clock made from scratch with an 8-bit AVR development board and jellybean parts."
-    },
-    GalleryCardArgs {
-        title: "8-Bit Alarm Clock",
-        img_path: "img/portfolio/clock1.jpg",
-        route_to: Route::AlarmClockWrap {},
-        description: "An alarm clock made from scratch with an 8-bit AVR development board and jellybean parts."
-    },
-    GalleryCardArgs {
-        title: "8-Bit Alarm Clock",
-        img_path: "img/portfolio/clock1.jpg",
-        route_to: Route::AlarmClockWrap {},
-        description: "An alarm clock made from scratch with an 8-bit AVR development board and jellybean parts."
-    }
-    ];
+    let content = &*use_shared_state::<SiteContent>(cx).unwrap().read();
 
-    hardware_cards.truncate(max_cards);
+    let max_cards = max_cards.unwrap_or(usize::MAX);
+
+    let mut hardware_cards: Vec<GalleryCardArgs> = vec![];
+
+    for (itr, (id, info)) in content.projects.hardware.iter().enumerate() {
+        if itr < max_cards {
+            let title = info.config.title.as_deref().unwrap_or("");
+            let img_path = &info.config.thumbnail;
+            let route_to = Route::HardwareProjectDetail { name: id.clone() };
+            let description = info.config.description.as_deref().unwrap_or("");
+
+            hardware_cards.push(GalleryCardArgs {
+                title,
+                img_path,
+                route_to,
+                description,
+            });
+        } else {
+            break;
+        }
+    }
 
     let hardware_cards_rendered = hardware_cards.iter().map(|card| {
         render! {
-            GalleryCard {
-                title: card.title,
-                img_path: card.img_path,
-                route_to: card.route_to.clone(),
-                description:card.description
+            GalleryCard{
+                title:"{card.title}",
+                img_path:"{card.img_path}",
+                route_to:card.route_to.clone(),
+                description: "{card.description}"
             }
         }
     });

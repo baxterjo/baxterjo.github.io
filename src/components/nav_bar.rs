@@ -51,7 +51,7 @@ pub fn NavBar(cx: Scope) -> Element {
                         }
                         li {
                             class: "nav-item",
-                            NavLink { route_to: Route::Projects {  }}
+                            NavLink { route_to: Route::ProjectsRoot {  }}
                         }
                         li {
                             class: "nav-item",

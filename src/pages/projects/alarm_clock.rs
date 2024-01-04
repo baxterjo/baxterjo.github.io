@@ -9,6 +9,7 @@ pub fn AlarmClockWrap(cx: Scope) -> Element {
     let content = &*use_shared_state::<SiteContent>(cx).unwrap().read();
     let markdown_owned = content
         .projects
+        .hardware
         .get("alarm_clock")
         .unwrap()
         .markdown
