@@ -3,8 +3,8 @@ use dioxus::prelude::*;
 use crate::components::page_not_found::PageNotFound;
 use crate::components::{GalleryCard, GalleryCardArgs};
 use crate::content::SiteContent;
+use crate::markdown::Markdown;
 use crate::router::Route;
-use dioxus_markdown::Markdown;
 
 #[component]
 pub fn ProjectDetail<'a>(cx: Scope, title: &'a str, content: &'a str) -> Element {
@@ -17,7 +17,7 @@ pub fn ProjectDetail<'a>(cx: Scope, title: &'a str, content: &'a str) -> Element
                 div {
                     class: "col-lg-8",
                     Markdown{
-                        class: "content centered img-fluid container",
+                        class: "content centered img-fluid container table",
                         content: "{content}"
                     }
 

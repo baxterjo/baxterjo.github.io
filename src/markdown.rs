@@ -1,7 +1,7 @@
 #![allow(non_snake_case)]
 
 use dioxus::prelude::*;
-use pulldown_cmark::Parser;
+use pulldown_cmark::{Options, Parser};
 
 #[derive(Props)]
 pub struct MarkdownProps<'a> {
@@ -10,12 +10,14 @@ pub struct MarkdownProps<'a> {
     #[props(default)]
     class: &'a str,
 
-    content: String,
+    content: &'a str,
 }
 
 /// Render some text as markdown.
 pub fn Markdown<'a>(cx: Scope<'a, MarkdownProps<'a>>) -> Element {
-    let parser = Parser::new(cx.props.content.as_str());
+    let mut options = Options::empty();
+    options.insert(Options::ENABLE_TABLES);
+    let parser = Parser::new_ext(cx.props.content, options);
 
     let mut html_buf = String::new();
     pulldown_cmark::html::push_html(&mut html_buf, parser);

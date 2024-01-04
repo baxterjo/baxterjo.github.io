@@ -1417,16 +1417,16 @@ imports.wbg.__wbindgen_closure_wrapper1181 = function() { return logError(functi
     const ret = makeMutClosure(arg0, arg1, 90, __wbg_adapter_54);
     return addHeapObject(ret);
 }, arguments) };
-imports.wbg.__wbindgen_closure_wrapper10708 = function() { return logError(function (arg0, arg1, arg2) {
-    const ret = makeClosure(arg0, arg1, 769, __wbg_adapter_57);
+imports.wbg.__wbindgen_closure_wrapper10689 = function() { return logError(function (arg0, arg1, arg2) {
+    const ret = makeClosure(arg0, arg1, 767, __wbg_adapter_57);
     return addHeapObject(ret);
 }, arguments) };
-imports.wbg.__wbindgen_closure_wrapper11226 = function() { return logError(function (arg0, arg1, arg2) {
-    const ret = makeMutClosure(arg0, arg1, 815, __wbg_adapter_60);
+imports.wbg.__wbindgen_closure_wrapper11216 = function() { return logError(function (arg0, arg1, arg2) {
+    const ret = makeMutClosure(arg0, arg1, 813, __wbg_adapter_60);
     return addHeapObject(ret);
 }, arguments) };
 imports.wbg.__wbindgen_closure_wrapper11410 = function() { return logError(function (arg0, arg1, arg2) {
-    const ret = makeMutClosure(arg0, arg1, 833, __wbg_adapter_63);
+    const ret = makeMutClosure(arg0, arg1, 831, __wbg_adapter_63);
     return addHeapObject(ret);
 }, arguments) };
 imports['./snippets/dioxus-interpreter-js-85a0a2f8acce2e86/inline0.js'] = __wbg_star0;

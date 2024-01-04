@@ -46,7 +46,7 @@ pub fn AlarmClock(cx: Scope, md: String) -> Element {
                     class: "col-lg-8",
                     Markdown{
                         class: "content centered img-fluid container",
-                        content: md.to_string()
+                        content: "{md}"
                     }
 
                 }
