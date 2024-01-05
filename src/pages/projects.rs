@@ -1,4 +1,3 @@
-pub mod alarm_clock;
 pub mod project_detail;
 use dioxus::prelude::*;
 
@@ -9,7 +8,6 @@ use crate::router::Route;
 pub fn ProjectsRoot(cx: Scope) -> Element {
     render! {
         ProjectHeaderWrap {}
-        Gallery{ gallery_type: GalleryType::Experience}
         Gallery{ gallery_type: GalleryType::SoftwareProjects}
         Gallery{ gallery_type: GalleryType::HardwareProjects}
     }
