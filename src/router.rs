@@ -3,7 +3,7 @@ use crate::pages::{
     about::About,
     contact::Contact,
     education::Education,
-    experience::Experience,
+    experience::{experience_detail::ExperienceDetail, Experience},
     home::Home,
     projects::{
         project_detail::{HardwareProjectDetail, SoftwareProjectDetail},
@@ -21,8 +21,12 @@ pub enum Route {
         Home {},
         #[route("/about", About)]
         About {},
-        #[route("/experience", Experience)]
-        Experience{},
+        #[nest("/experience")]
+            #[route("/")]
+            Experience{},
+            #[route("/experience/:name")]
+            ExperienceDetail {name: String},
+        #[end_nest]
         #[nest("/projects")]
             #[route("/")]
             ProjectsRoot{},

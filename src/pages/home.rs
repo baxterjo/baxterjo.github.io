@@ -1,5 +1,4 @@
-use crate::components::GalleryCard;
-use crate::pages::projects::{HardwareGallery, SoftwareGallery};
+use crate::components::{Gallery, GalleryCard, GalleryType};
 use crate::router::Route;
 use dioxus::prelude::*;
 
@@ -22,9 +21,9 @@ pub fn Home(cx: Scope) -> Element {
             }
         }
 
-        ExperienceGallery {}
-        HardwareGallery {max_cards:3}
-        SoftwareGallery {}
+        Gallery{max_cards:3, gallery_type: GalleryType::Experience}
+        Gallery{max_cards:3, gallery_type: GalleryType::SoftwareProjects}
+        Gallery{max_cards:3, gallery_type: GalleryType::HardwareProjects}
     }
 }
 

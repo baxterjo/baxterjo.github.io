@@ -1,10 +1,8 @@
 use dioxus::prelude::*;
 
 use crate::components::page_not_found::PageNotFound;
-use crate::components::{GalleryCard, GalleryCardArgs};
 use crate::content::SiteContent;
 use crate::markdown::Markdown;
-use crate::router::Route;
 
 #[component]
 pub fn ProjectDetail<'a>(cx: Scope, title: &'a str, content: &'a str) -> Element {
