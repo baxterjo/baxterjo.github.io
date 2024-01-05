@@ -14,7 +14,7 @@ pub fn NavBar(cx: Scope) -> Element {
         nav {
             class: "navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top",
             div {
-                class: "container",
+                class: "container-fluid",
                 div {
                     class:"navbar-header",
                     button {

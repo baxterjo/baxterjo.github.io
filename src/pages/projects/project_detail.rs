@@ -9,7 +9,7 @@ pub fn ProjectDetail<'a>(cx: Scope, title: &'a str, content: &'a str) -> Element
     render! {
         ProjectDetailHeaderWrap{ title: "{title}"}
         div {
-            class: "container",
+            class: "container-fluid",
             div {
                 class: "row justify-content-center",
                 div {
@@ -28,7 +28,7 @@ pub fn ProjectDetail<'a>(cx: Scope, title: &'a str, content: &'a str) -> Element
 #[component]
 pub fn HardwareProjectDetail(cx: Scope, name: String) -> Element {
     let content = &*use_shared_state::<SiteContent>(cx).unwrap().read();
-    let content_info = content.projects.hardware.get(name);
+    let content_info = content.hardware_projects.get(name);
 
     match content_info {
         Some(segment) => {
@@ -63,7 +63,7 @@ fn ProjectDetailHeaderWrap<'a>(cx: Scope, title: &'a str) -> Element {
         div {
             id: "work-wrap-non-bs",
             div {
-                class: "container",
+                class: "container-fluid",
                 div {
                     class: "row justify-content-center",
                     div {

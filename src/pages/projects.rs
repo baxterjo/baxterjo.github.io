@@ -1,11 +1,22 @@
 pub mod project_detail;
 use dioxus::prelude::*;
+use log::warn;
 
-use crate::components::{Gallery, GalleryCard, GalleryCardArgs, GalleryType};
+use crate::components::gallery::{Gallery, GalleryCard, GalleryCardArgs, GalleryType};
 use crate::router::Route;
 
 #[component]
 pub fn ProjectsRoot(cx: Scope) -> Element {
+    // let window = web_sys::window();
+    // if let Some(window) = window {
+    //     if let Some(document) = window.document() {
+    //         document.set_title("Jordan Baxter - Projects")
+    //     } else {
+    //         warn!("Couldn't get document to change document title.");
+    //     }
+    // } else {
+    //     warn!("Couldn't get window to change document title.");
+    // }
     render! {
         ProjectHeaderWrap {}
         Gallery{ gallery_type: GalleryType::SoftwareProjects}
@@ -19,7 +30,7 @@ fn ProjectHeaderWrap(cx: Scope) -> Element {
         div {
             id: "work-wrap-non-bs",
             div {
-                class: "container",
+                class: "container-fluid",
                 div {
                     class: "row justify-content-center",
                     div {
@@ -67,7 +78,7 @@ pub fn SoftwareGallery(cx: Scope, max_cards: Option<usize>) -> Element {
         div {
             class: "py-5 bg-light",
             div {
-                class: "container",
+                class: "container-fluid",
                 div {
                     class: "row centered",
                     h2 {

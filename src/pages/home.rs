@@ -1,5 +1,4 @@
-use crate::components::{Gallery, GalleryCard, GalleryType};
-use crate::router::Route;
+use crate::components::gallery::{Gallery, GalleryType};
 use dioxus::prelude::*;
 
 #[component]
@@ -9,7 +8,7 @@ pub fn Home(cx: Scope) -> Element {
         div{
             class: "py-5 bg-light",
             div {
-                class: "container",
+                class: "container-fluid",
                 div {
                     class: "row centered",
 
@@ -33,7 +32,7 @@ fn HomePageHeaderWrap(cx: Scope) -> Element {
         div {
             id: "home-page-header-wrap-non-bs",
             div {
-                class: "container",
+                class: "container-fluid",
                 div {
                     class: "row justify-content-center",
                     div {
@@ -53,42 +52,5 @@ fn HomePageHeaderWrap(cx: Scope) -> Element {
                 }
             }
         }
-    }
-}
-
-#[component]
-fn ExperienceGallery(cx: Scope) -> Element {
-    render! {
-        div {
-            class: "py-5 bg-light",
-            div {
-                class: "container",
-                div {
-                    class: "row centered",
-                    h2 {
-                        "Experience"
-                    }
-                }
-                div {
-                    class: "row",
-                    div {
-                        class: "card-group justify-content-center",
-                        GalleryCard {
-                            img_path: "img/experience/generac.png",
-                            route_to: Route::PageNotFound { route:  vec!["experience/generac".to_string()]  },
-                            description: "September 2021 - Present"
-                        }
-                        GalleryCard{
-                            img_path:"img/experience/apricity.png",
-                            route_to: Route::PageNotFound { route:  vec!["experience/apricity".to_string()]  },
-                            description: "February 2018 - September 2021"
-                        }
-
-                    }
-
-                }
-            }
-        }
-
     }
 }

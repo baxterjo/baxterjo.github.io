@@ -118,6 +118,7 @@ dependencies = [
  "urlencoding",
  "walkdir",
  "wasm-logger",
+ "web-sys",
 ]
 
 [[package]]
