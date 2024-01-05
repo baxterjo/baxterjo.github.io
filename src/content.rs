@@ -13,13 +13,8 @@ const CONTENT_DIR: Dir<'_> = include_dir!("$CARGO_MANIFEST_DIR/site_content");
 pub struct SiteContent {
     pub experience: HashMap<String, ContentSegment>,
     pub education: HashMap<String, ContentSegment>,
-    pub projects: ProjectMap,
-}
-
-#[derive(Debug, Clone)]
-pub struct ProjectMap {
-    pub hardware: HashMap<String, ContentSegment>,
-    pub software: HashMap<String, ContentSegment>,
+    pub hardware_projects: HashMap<String, ContentSegment>,
+    pub software_projects: HashMap<String, ContentSegment>,
 }
 
 #[derive(Debug, Clone)]
@@ -57,17 +52,17 @@ impl SiteContent {
             }
         };
 
-        let hardware_dir = CONTENT_DIR.get_dir("projects/hardware").unwrap();
-        let software_dir = CONTENT_DIR.get_dir("projects/software").unwrap();
+        let hardware_dir = CONTENT_DIR.get_dir("hardware_projects").unwrap();
+        let software_dir = CONTENT_DIR.get_dir("software_projects").unwrap();
 
-        let hardware = match get_content_map(hardware_dir) {
+        let hardware_projects = match get_content_map(hardware_dir) {
             Ok(x) => x,
             Err(err) => {
                 error!("Got error while trying to fetch hardware content: {err}");
                 HashMap::<String, ContentSegment>::new()
             }
         };
-        let software = match get_content_map(software_dir) {
+        let software_projects = match get_content_map(software_dir) {
             Ok(x) => x,
             Err(err) => {
                 error!("Got error while trying to fetch software content: {err}");
@@ -75,12 +70,11 @@ impl SiteContent {
             }
         };
 
-        let projects = ProjectMap { hardware, software };
-
         SiteContent {
             experience,
             education,
-            projects,
+            hardware_projects,
+            software_projects,
         }
     }
 }
@@ -178,17 +172,17 @@ mod test {
         let education_dir = CONTENT_DIR.get_dir("education").unwrap();
         let education = get_content_map(education_dir).unwrap();
 
-        let hardware_dir = CONTENT_DIR.get_dir("projects/hardware").unwrap();
-        let software_dir = CONTENT_DIR.get_dir("projects/software").unwrap();
+        let hardware_dir = CONTENT_DIR.get_dir("hardware_projects").unwrap();
+        let software_dir = CONTENT_DIR.get_dir("software_projects").unwrap();
 
-        let hardware = match get_content_map(hardware_dir) {
+        let hardware_projects = match get_content_map(hardware_dir) {
             Ok(x) => x,
             Err(err) => {
                 error!("Got error while trying to fetch hardware content: {err}");
                 HashMap::<String, ContentSegment>::new()
             }
         };
-        let software = match get_content_map(software_dir) {
+        let software_projects = match get_content_map(software_dir) {
             Ok(x) => x,
             Err(err) => {
                 error!("Got error while trying to fetch software content: {err}");
@@ -196,12 +190,11 @@ mod test {
             }
         };
 
-        let projects = ProjectMap { hardware, software };
-
         let site_content = SiteContent {
             experience,
             education,
-            projects,
+            hardware_projects,
+            software_projects,
         };
         log::debug!("Site Content: {site_content:#?}")
     }
