@@ -30,9 +30,9 @@ pub enum Route {
         #[nest("/projects")]
             #[route("/")]
             ProjectsRoot{},
-            #[route("/projects/hardware/:name")]
+            #[route("/hardware/:name")]
             HardwareProjectDetail {name: String},
-            #[route("/projects/software/:name")]
+            #[route("/software/:name")]
             SoftwareProjectDetail {name: String},
         #[end_nest]
         #[route("/education", Education)]

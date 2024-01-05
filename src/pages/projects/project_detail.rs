@@ -51,9 +51,25 @@ pub fn HardwareProjectDetail(cx: Scope, name: String) -> Element {
 
 #[component]
 pub fn SoftwareProjectDetail(cx: Scope, name: String) -> Element {
-    // let content = &*use_shared_state::<SiteContent>(cx).unwrap().read();
-    render! {
-        ProjectDetailHeaderWrap{ title: "{name}"}
+    let content = &*use_shared_state::<SiteContent>(cx).unwrap().read();
+    let content_info = content.software_projects.get(name);
+
+    match content_info {
+        Some(segment) => {
+            let title = segment.config.title.as_deref().unwrap_or("");
+            let md_content = &segment.markdown;
+            render! {
+                ProjectDetail {
+                    title: "{title}",
+                    content:"{md_content}"
+                }
+            }
+        }
+        None => {
+            render! {
+                PageNotFound{route: vec![name.clone()]}
+            }
+        }
     }
 }
 
