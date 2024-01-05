@@ -1,12 +1,10 @@
 pub mod nav_bar;
 pub mod page_not_found;
-
-use std::collections::HashMap;
-
 use crate::content::{ContentSegment, SiteContent};
 use crate::router::Route;
 use dioxus::prelude::*;
 use dioxus_router::prelude::*;
+use toml::value::Date;
 
 #[derive(Debug, Clone, PartialEq)]
 pub enum GalleryType {
@@ -31,10 +29,9 @@ pub fn GalleryCard<'a>(
     description: Option<&'a str>,
 ) -> Element {
     render! {
-        div {
-            class: "col-lg-4 col-md-4 col-sm-4 gallery",
+
             div {
-                class: "card bg-light text-white",
+                class: "card bg-light text-white mx-1",
                 img {
                     class: "card-img",
                     src:*img_path
@@ -52,7 +49,7 @@ pub fn GalleryCard<'a>(
                     }
                 }
             }
-        }
+
     }
 }
 
@@ -62,14 +59,28 @@ pub fn Gallery(cx: Scope, max_cards: Option<usize>, gallery_type: GalleryType) -
 
     let max_cards = max_cards.unwrap_or(usize::MAX);
 
-    let (gallery_title, content_itr) = match gallery_type {
-        GalleryType::Experience => ("Experience", content.experience.iter().enumerate()),
-        GalleryType::HardwareProjects => ("Hardware", content.projects.hardware.iter().enumerate()),
-        GalleryType::SoftwareProjects => ("Software", content.projects.software.iter().enumerate()),
+    let (gallery_title, mut gallery_content) = match gallery_type {
+        GalleryType::Experience => (
+            "Experience",
+            content
+                .experience
+                .iter()
+                .collect::<Vec<(&String, &ContentSegment)>>(),
+        ),
+        GalleryType::HardwareProjects => ("Hardware", content.projects.hardware.iter().collect()),
+        GalleryType::SoftwareProjects => ("Software", content.projects.software.iter().collect()),
     };
 
+    gallery_content.sort_by_key(|(_id, info)| {
+        let mut key: Date = info.config.date_added.date.unwrap();
+        key.day -= info.config.priority_level as u8;
+        key
+    });
+
+    gallery_content.reverse();
+
     let mut cards: Vec<GalleryCardArgs> = vec![];
-    for (itr, (id, info)) in content_itr {
+    for (itr, (id, info)) in gallery_content.into_iter().enumerate() {
         if itr < max_cards {
             let title = info.config.title.as_deref().unwrap_or("");
             let img_path = &info.config.thumbnail;
@@ -116,14 +127,13 @@ pub fn Gallery(cx: Scope, max_cards: Option<usize>, gallery_type: GalleryType) -
                         "{gallery_title}"
                     }
                 }
-                div {
-                    class: "row justify-content-center",
-                    div {
-                        class: "card-deck",
-                        cards_rendered
 
-                    }
+                div {
+                    class: "card-group",
+                    cards_rendered
+
                 }
+
             }
         }
 

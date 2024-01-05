@@ -51,7 +51,7 @@ pub fn HardwareProjectDetail(cx: Scope, name: String) -> Element {
 
 #[component]
 pub fn SoftwareProjectDetail(cx: Scope, name: String) -> Element {
-    let content = &*use_shared_state::<SiteContent>(cx).unwrap().read();
+    // let content = &*use_shared_state::<SiteContent>(cx).unwrap().read();
     render! {
         ProjectDetailHeaderWrap{ title: "{name}"}
     }

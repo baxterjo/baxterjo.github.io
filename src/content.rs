@@ -159,7 +159,7 @@ fn get_content_map(content_type_path: &Dir) -> Result<HashMap<String, ContentSeg
                 let content_id = encode(&content_id).into_owned();
                 output.insert(content_id, segment);
             }
-            DirEntry::File(file) => {}
+            DirEntry::File(_file) => {}
         }
     }
     Ok(output)
