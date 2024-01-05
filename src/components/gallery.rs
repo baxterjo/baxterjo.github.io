@@ -19,7 +19,7 @@ pub struct GalleryCardArgs<'a> {
 }
 
 #[component]
-pub fn GalleryCard<'a>(
+fn GalleryCard<'a>(
     cx: Scope,
     title: Option<&'a str>,
     img_path: &'a str,

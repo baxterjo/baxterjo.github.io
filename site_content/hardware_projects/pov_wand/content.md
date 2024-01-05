@@ -3,25 +3,25 @@
 
 Persistence of vision is a principle that is used in most forms of visual display in Computer Engineering. We leveraged this principle to write text in thin air!
 
-![](/img/projects/hardware/pov_wand/pov0.jpg)
+![](/img/hardware_projects/pov_wand/pov0.jpg)
 
 #### MEET THE TEAM
 
 Meet Suyang Liu and Anthony Bishop, these two and I lived in the lab for two and a half weeks to get this thing going. Our message was not-so-subtle.
 
-![](/img/projects/hardware/pov_wand/pov1.jpg)
+![](/img/hardware_projects/pov_wand/pov1.jpg)
 
 #### HANDHELD DESIGN
 
 We decided we wanted something that you could fit in your pocket, so we went with a very portable design that had an external battery. This whole project weighed less than a pound and could be carried around with ease.
 
-![](/img/projects/hardware/pov_wand/pov3.jpg)
+![](/img/hardware_projects/pov_wand/pov3.jpg)
 
 #### ADVANCED SENSORS
 
 The minimum requirement for this project was to use a potentiometer to tell the micro controller what to display. We thought that sounded clunky and didn't allow for enough freedom of movement. So we strapped an accelerometer to this bad boy to get advanced control schemes.
 
-![](/img/projects/hardware/pov_wand/pov2.jpg)
+![](/img/hardware_projects/pov_wand/pov2.jpg)
 
 #### HAVE FUN
 

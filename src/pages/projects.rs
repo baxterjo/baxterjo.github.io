@@ -2,8 +2,7 @@ pub mod project_detail;
 use dioxus::prelude::*;
 use log::warn;
 
-use crate::components::gallery::{Gallery, GalleryCard, GalleryCardArgs, GalleryType};
-use crate::router::Route;
+use crate::components::gallery::{Gallery, GalleryType};
 
 #[component]
 pub fn ProjectsRoot(cx: Scope) -> Element {
@@ -46,55 +45,5 @@ fn ProjectHeaderWrap(cx: Scope) -> Element {
                 }
             }
         }
-    }
-}
-
-#[component]
-pub fn SoftwareGallery(cx: Scope, max_cards: Option<usize>) -> Element {
-    let max_cards = max_cards.unwrap_or(usize::MAX);
-    let mut cards: Vec<GalleryCardArgs> = vec![
-        GalleryCardArgs {
-            title: "Antenna Simulator",
-            img_path: "img/portfolio/antennasimulator.gif",
-            route_to: Route::PageNotFound { route: vec!["projects/antenna-simulator".to_string()] },
-            description: "An antenna simulation application written in python that uses the tkinter toolkit to render a GUI."
-        }
-    ];
-
-    cards.truncate(max_cards);
-
-    let cards_rendered = cards.iter().map(|card| {
-        render! {
-            GalleryCard {
-                title: card.title,
-                img_path: card.img_path,
-                route_to: card.route_to.clone(),
-                description:card.description
-            }
-        }
-    });
-
-    render! {
-        div {
-            class: "py-5 bg-light",
-            div {
-                class: "container-fluid",
-                div {
-                    class: "row centered",
-                    h2 {
-                        "Software"
-                    }
-                }
-                div {
-                    class: "row justify-content-center",
-                    div {
-                        class: "card-group justify-content-center",
-                        cards_rendered
-
-                    }
-                }
-            }
-        }
-
     }
 }

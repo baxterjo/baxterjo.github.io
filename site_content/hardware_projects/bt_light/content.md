@@ -5,19 +5,19 @@ Our client had a working Bluetooth mesh light switch running on the CSR API. Whe
 
 #### HACK IT
 
-![](/img/projects/hardware/bt_light/btsig2.jpg)
+![](/img/hardware_projects/bt_light/btsig2.jpg)
 
 For this project, I was given the existing hardware for a light switch and a lighting control box. As well as the schematics for each. My task was to reverse engineer the existing design, and hack a new microcontroller into it. All while retaining original functionality. The above image is a qualcomm IoT development board flashed with custom firmware strapped to the back of the existing hardware with control wires running inside for I/O.
 
 #### PRESENTABILITY
 
-![](/img/projects/hardware/bt_light/btsig3.jpg)
+![](/img/hardware_projects/bt_light/btsig3.jpg)
 
 As mentioned above, this switch was destined for display at a conference. So, while functional, the bare board wouldn't cut it. Luckily, light switches are built in standard sizes, so a quick trip to the ACE Hardware down the road gave me a perfect enclosure.
 
 #### DEMONSTRATION
 
-![](/img/projects/hardware/bt_light/btsig1.jpg)
+![](/img/hardware_projects/bt_light/btsig1.jpg)
 
 How do you show people a light control box works without a light attached to it?
 You figure it out!

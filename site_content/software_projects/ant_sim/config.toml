@@ -1,0 +1,5 @@
+title = "Antenna Simulator"
+thumbnail = "/img/software_projects/antennasimulator.gif"
+description = "An antenna simulation application written in python that uses the tkinter toolkit to render a GUI."
+date_added = 2023-01-02
+priority_level = 0
