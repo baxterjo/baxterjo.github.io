@@ -1,0 +1,5 @@
+title = "Bluetooth Mesh Light Switch"
+thumbnail = "/img/hardware_projects/bt_light/btsig1.jpg"
+description = "A light switch that uses bluetooth mesh to operate and dim a light."
+date_added = 2023-01-02
+priority_level = 2

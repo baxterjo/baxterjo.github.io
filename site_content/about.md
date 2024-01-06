@@ -1,0 +1,2 @@
+
+My name is Jordan Baxter, I was born an raised in sunny Bend, Oregon. When I graduated highschool I left town an joined the Navy where I was able to travel the world. After 6 years of active duty service I decided I wanted to pursue a life of my own, so I decided to leave the Navy and attend Oregon State University to get my degree in Electrical and Computer Engineering. Since graduating Summa Cum Laude from OSU in 2020, I have been working in clean energy technology and IoT.
