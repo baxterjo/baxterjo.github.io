@@ -7,10 +7,16 @@ In addition to all of the skills you would expect to gain from attending a top n
 |   |  |
 |---|---|
 |3.92 GPA| Summa Cum Laude|
-| Embedded System Design | Antenna Design  |
+| Embedded System Design | Concepts of Antennas and Radiation  |
 | Project Management | Python  |
 | C++ | Autodesk Eagle  |
 | Fusion 360 | Computer Architecture |
+
+#### Learning to Teach Myself
+
+At school, you pay for your education. But sometimes you're not quite satisfied with the content. Not that its inadequate, but it just leaves room for improvement. This was my attitude toward the very academic Matlab programming language. I had used Matlab throughout my entire college experience, but after having written actual programs in widely accepted programming languages, I was left wanting more.
+
+This desire finally reared its head in the second quarter of my senior year when, in an antennas class, we were asked to submit homework with radial plots. I finally said to myself: "I will never use Matlab after school, I need to be more prepared for the industry I am going into. So I taught myself Python! Little did I know that this would be the foundation of the first few years of my career as it would see me developing backend applications for a clean energy and demand response IoT device.
 
 #### Launch Velocity
 

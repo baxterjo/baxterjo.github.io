@@ -107,7 +107,7 @@ pub fn Gallery(
                 div {
                     class: "row",
                     div {
-                        class: "card-group justify-content-center",
+                        class: "card-group justify-content-left",
                         cards_rendered
 
                     }

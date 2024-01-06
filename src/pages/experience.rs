@@ -22,7 +22,7 @@ fn ExperienceHeaderWrap(cx: Scope) -> Element {
                     div {
                         class: "col-lg-6",
                         h4 {
-                            "SO YOU WANT TO KNOW"
+                            "YOU WANT TO KNOW"
                         }
                         h1 {
                             "WHERE I'VE BEEN"
