@@ -11,7 +11,7 @@ Being in the Navy was a great experience for me. I got to travel the world, I li
 
 ![](/img/experience/navy/ciws.jpg)
 
-My primary job in the Navy was to operate and maintain the Phalanx Close-In Weapons System (CIWS). This was a fully self contained defense system that had every domain of engineering packed into it. It has radar, control systems, cooling systems, ballistics, mechanical movement systems, and computers that controlled the whole thing. CIWS is a very maintenance demanding system that served as the basis for my troubleshooting expertise that I use on the job every day.
+My primary job in the Navy was to operate and maintain the Phalanx Close-In Weapon System (CIWS). This was a fully self contained defense system that has every domain of engineering packed into it. It has radar, control systems, cooling systems, ballistics, mechanical movement systems, and computers that controlled the whole thing. CIWS is a very maintenance demanding system that served as the basis for my troubleshooting expertise that I use on the job every day.
 
 #### Leadership Experience
 
