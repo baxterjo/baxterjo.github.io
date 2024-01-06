@@ -10,28 +10,22 @@ pub fn Footer(cx: Scope) -> Element {
         div {
             id: "copyrights",
             div {
-                class: "container-lg",
+                class: "container-fluid",
                 div {
-                    class: "credits flex-row",
+                    class: "credits row align-items-center",
                     div {
+                        class:"col-md-3 col-sm-12",
+                        id:"social",
                         a {
-                            class: "flex-col",
-                            href: "https://dioxuslabs.com/",
-                            div {
-                                class:"flex-shrink-0",
-                                img {
-                                    src: "https://avatars.githubusercontent.com/u/79236386?s=200&v=4",
-                                    alt:"Dioxus Labs Icon"
-                                }
-                            }
-                            div {
-                                class: "flex-grow-1 ms-3",
-                                "Powered by Dioxus"
+                            href:"http://www.linkedin.com/in/jordan-baxterece",
+                            i {
+                                class :"fa fa-linkedin"
                             }
                         }
                     }
+
                     div {
-                        class: "flex-col",
+                        class: "col-md-6 col-sm-12",
                         p {
                             class:"mt-2",
                             "© Styling copyrights "
@@ -44,31 +38,24 @@ pub fn Footer(cx: Scope) -> Element {
                             "TemplateMag"
                         }
                     }
-
-                }
-            }
-        }
-    }
-}
-
-#[component]
-pub fn Social(cx: Scope) -> Element {
-    render! {
-        div {
-            id: "social",
-            div {
-                class: "container-lg",
-                div {
-                    class:"row justify-content-center",
                     div {
-                        class:"col-lg-2 centered",
-                        a {
-                            href:"http://www.linkedin.com/in/jordan-baxterece",
-                            i {
-                                class :"fa fa-linkedin"
+                        class: "col-md-3 col-sm-12",
+
+
+                            a {
+                                id: "social",
+                                // class:"flex-shrink-0",
+                                href: "https://dioxuslabs.com/",
+                                img {
+                                    src: "https://avatars.githubusercontent.com/u/79236386?s=200&v=4",
+                                    alt:"Dioxus Labs Icon"
+                                }
+                                "Powered by Dioxus"
                             }
-                        }
+
                     }
+
+
                 }
             }
         }
