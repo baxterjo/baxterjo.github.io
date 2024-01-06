@@ -1,5 +1,5 @@
 use crate::capitalize;
-use crate::components::nav_bar::NavBar;
+use crate::components::{nav_bar::NavBar, Footer, Social};
 use crate::router::Route;
 use dioxus::prelude::*;
 use dioxus_router::prelude::*;
@@ -33,5 +33,7 @@ pub fn Layout(cx: Scope) -> Element {
     render! {
         NavBar{}
         Outlet::<Route> {}
+        Social{}
+        Footer{}
     }
 }

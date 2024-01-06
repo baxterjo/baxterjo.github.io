@@ -36,7 +36,7 @@ fn HomePageHeaderWrap(cx: Scope) -> Element {
                 div {
                     class: "row justify-content-center",
                     div {
-                        class: "col-lg-6",
+                        class: "col",
                         h4 {
                             "HELLO, MY NAME IS"
                         }

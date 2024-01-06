@@ -28,7 +28,7 @@ pub fn NavBar(cx: Scope) -> Element {
                         }
                     }
                     Link {
-                        class: "navbar-brand ms-1",
+                        class: "navbar-brand ms-2",
                         to: Route::Home {},
                         "JORDAN BAXTER"
                     }
