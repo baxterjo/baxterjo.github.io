@@ -132,9 +132,9 @@ fn GalleryCard<'a>(
         div {
             class: "col-md-4 col-sm-6",
             div {
-                class: "card bg-light text-white mx-1",
+                class: "card h-100 bg-light text-white mx-1",
                 img {
-                    class: "card-img",
+                    class: "card-img h-100",
                     src:*img_path
                 }
                 Link {
