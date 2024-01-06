@@ -1,4 +1,3 @@
-use crate::components::gallery::{Gallery, GalleryType};
 use dioxus::prelude::*;
 
 #[component]
@@ -11,8 +10,12 @@ pub fn Contact(cx: Scope) -> Element {
                 class: "container-lg",
                 div {
                     class: "row centered",
-                    div {
-                        class: "ratio"
+                    p {
+                        "Fill out this form or check me out on "
+                        a {
+                            href: "https://www.linkedin.com/in/baxterjo",
+                            "Linkedin"
+                        }
                     }
                     iframe {
                         src:"https://docs.google.com/forms/d/e/1FAIpQLSfckres6rZnrzLDyTPWQpcKaKPLlLhG04FEItohIIVo1USyyg/viewform?embedded=true",
@@ -20,6 +23,7 @@ pub fn Contact(cx: Scope) -> Element {
                         frame_border:"0", margin_height:"0", margin_width:"0",
                         "Loading…"
                     }
+
                 }
 
             }

@@ -130,7 +130,7 @@ fn GalleryCard<'a>(
 ) -> Element {
     render! {
         div {
-            class: "col-md-4 col-sm-6",
+            class: "col-md-4 col-sm-6 py-1",
             div {
                 class: "card h-100 bg-light text-white mx-1",
                 img {
