@@ -14,7 +14,7 @@ fn AboutHeaderWrap(cx: Scope) -> Element {
         div {
             id: "work-wrap-non-bs",
             div {
-                class: "container-fluid",
+                class: "container-lg",
                 div {
                     class: "row justify-content-center",
                     div {

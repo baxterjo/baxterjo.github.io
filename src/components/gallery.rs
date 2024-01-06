@@ -119,19 +119,22 @@ pub fn Gallery(cx: Scope, max_cards: Option<usize>, gallery_type: GalleryType) -
         div {
             class: "py-5 bg-light",
             div {
-                class: "container-fluid",
+                class: "container-lg",
                 div {
                     class: "row centered",
                     h2 {
                         "{gallery_title}"
                     }
                 }
-
                 div {
-                    class: "card-group",
-                    cards_rendered
+                    class: "row",
+                    div {
+                        class: "card-group justify-content-center",
+                        cards_rendered
 
+                    }
                 }
+
 
             }
         }

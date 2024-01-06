@@ -14,7 +14,7 @@ pub fn NavBar(cx: Scope) -> Element {
         nav {
             class: "navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top",
             div {
-                class: "container-fluid",
+                class: "container-lg",
                 div {
                     class:"navbar-header",
                     button {
@@ -27,7 +27,7 @@ pub fn NavBar(cx: Scope) -> Element {
                         }
                     }
                     Link {
-                        class: "navbar-brand",
+                        class: "navbar-brand ms-1",
                         to: Route::Home {},
                         "JORDAN BAXTER"
                     }

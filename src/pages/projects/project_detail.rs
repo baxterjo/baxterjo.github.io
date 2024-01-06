@@ -9,13 +9,13 @@ pub fn ProjectDetail<'a>(cx: Scope, title: &'a str, content: &'a str) -> Element
     render! {
         ProjectDetailHeaderWrap{ title: "{title}"}
         div {
-            class: "container-fluid",
+            class: "container-lg",
             div {
                 class: "row justify-content-center",
                 div {
                     class: "col-lg-8",
                     Markdown{
-                        class: "content centered img-fluid container table",
+                        class: "content centered img-lg container table",
                         content: "{content}"
                     }
 
@@ -79,7 +79,7 @@ fn ProjectDetailHeaderWrap<'a>(cx: Scope, title: &'a str) -> Element {
         div {
             id: "work-wrap-non-bs",
             div {
-                class: "container-fluid",
+                class: "container-lg",
                 div {
                     class: "row justify-content-center",
                     div {

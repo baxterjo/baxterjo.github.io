@@ -8,7 +8,7 @@ pub fn Home(cx: Scope) -> Element {
         div{
             class: "py-5 bg-light",
             div {
-                class: "container-fluid",
+                class: "container-lg",
                 div {
                     class: "row centered",
 
@@ -32,7 +32,7 @@ fn HomePageHeaderWrap(cx: Scope) -> Element {
         div {
             id: "home-page-header-wrap-non-bs",
             div {
-                class: "container-fluid",
+                class: "container-lg",
                 div {
                     class: "row justify-content-center",
                     div {
