@@ -1,4 +1,4 @@
-use crate::components::{nav_bar::NavBar, page_not_found::PageNotFound};
+use crate::components::{layout::Layout, page_not_found::PageNotFound};
 use crate::pages::{
     about::About,
     contact::Contact,
@@ -16,7 +16,7 @@ use dioxus_router::prelude::*;
 #[derive(Routable, Clone, PartialEq, Debug)]
 #[rustfmt::skip]
 pub enum Route {
-    #[layout(NavBar)]
+    #[layout(Layout)]
         #[route("/")]
         Home {},
         #[route("/about", About)]

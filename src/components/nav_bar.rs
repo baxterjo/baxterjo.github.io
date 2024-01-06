@@ -69,36 +69,36 @@ pub fn NavBar(cx: Scope) -> Element {
 
         }
         // debug!("{:#?}", Route::SITE_MAP)
-        Outlet::<Route> {}
+
     }
 }
 
 #[component]
 fn NavLink(cx: Scope, route_to: Route) -> Element {
     let current_route: Route = use_route(&cx).unwrap();
-    let route_name = if *route_to == (Route::Home {}) {
-        "Home".to_string()
+    let (route_name, link_class) = if *route_to == (Route::Home {}) {
+        let link_class = if current_route == (Route::Home {}) {
+            "nav-link active"
+        } else {
+            "nav-link"
+        };
+        ("Home".to_string(), link_class)
     } else {
-        capitalize(route_to.to_string().replace("/", "").as_str())
+        let route_str = route_to.to_string();
+        let link_class = if current_route.to_string().contains(&route_str) {
+            "nav-link active"
+        } else {
+            "nav-link"
+        };
+        let route_name = capitalize(route_str.replace("/", "").as_str());
+        (route_name, link_class)
     };
-    let link_class = if *route_to == current_route {
-        "nav-link active"
-    } else {
-        "nav-link"
-    };
+
     render! {
         Link {
             class: link_class,
             to: route_to.clone(),
             route_name,
         }
-    }
-}
-
-fn capitalize(s: &str) -> String {
-    let mut c = s.chars();
-    match c.next() {
-        None => String::new(),
-        Some(f) => f.to_uppercase().collect::<String>() + c.as_str(),
     }
 }

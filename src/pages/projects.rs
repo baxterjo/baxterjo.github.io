@@ -6,16 +6,6 @@ use crate::components::gallery::{Gallery, GalleryType};
 
 #[component]
 pub fn ProjectsRoot(cx: Scope) -> Element {
-    // let window = web_sys::window();
-    // if let Some(window) = window {
-    //     if let Some(document) = window.document() {
-    //         document.set_title("Jordan Baxter - Projects")
-    //     } else {
-    //         warn!("Couldn't get document to change document title.");
-    //     }
-    // } else {
-    //     warn!("Couldn't get window to change document title.");
-    // }
     render! {
         ProjectHeaderWrap {}
         Gallery{ gallery_type: GalleryType::SoftwareProjects}
