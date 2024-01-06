@@ -170,7 +170,7 @@ a:active {
    ========================================================================== */
 
 #home-page-header-wrap-non-bs {
-  background: url(../img/back.jpg) no-repeat center top;
+  background: url(/img/back.jpg) no-repeat center top;
   margin-top: -70px;
   padding-top: 250px;
   text-align: center;
@@ -238,7 +238,7 @@ a:active {
 }
 
 #work-wrap-non-bs {
-  background: url(../img/work.jpg) no-repeat center top;
+  background: url(/img/work.jpg) no-repeat center top;
   margin-top: -70px;
   padding-top: 250px;
   text-align: center;
@@ -273,7 +273,7 @@ a:active {
 }
 
 #aboutwrap {
-  background: url(../img/aboutblackandwhite.JPG) no-repeat center top;
+  background: url(/img/aboutblackandwhite.JPG) no-repeat center top;
   margin-top: -70px;
   padding-top: 250px;
   text-align: center;
@@ -292,7 +292,7 @@ a:active {
 }
 
 #projectswrap {
-  background: url(../img/work.jpg) no-repeat center top;
+  background: url(/img/work.jpg) no-repeat center top;
   margin-top: -70px;
   padding-top: 250px;
   text-align: center;
@@ -324,7 +324,7 @@ a:active {
 /* Contact Form */
 
 #contactwrap {
-  background: url(../img/contact.jpg) no-repeat center top;
+  background: url(/img/contact.jpg) no-repeat center top;
   margin-top: -70px;
   padding-top: 250px;
   text-align: center;
