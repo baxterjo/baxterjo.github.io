@@ -19,11 +19,11 @@ pub fn ExperienceDetail(cx: Scope, name: String) -> Element {
                 div {
                     class: "container-lg",
                     div {
-                        class: "row justify-content-center",
+                        class: "row justify-content-center mt-3",
                         div {
                             class: "col-lg-8",
                             Markdown{
-                                class: "content centered img-lg container-lg",
+                                class: "content centered img-lg",
                                 content: "{md_content}"
                             }
 
