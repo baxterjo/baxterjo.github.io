@@ -186,7 +186,7 @@ a:active {
   padding-top: 10px;
   padding-bottom: 20px;
   letter-spacing: 4px;
-  font-size: 80px;
+  font-size: 70px;
   font-weight: bold;
 }
 
@@ -252,7 +252,7 @@ a:active {
   padding-top: 10px;
   padding-bottom: 20px;
   letter-spacing: 4px;
-  font-size: 80px;
+  font-size: 50px;
   font-weight: bold;
 }
 
@@ -474,4 +474,9 @@ a:active {
 
 .credits {
   color: #999;
+}
+
+.credits img {
+  width: 50px;
+  height: auto;
 }
