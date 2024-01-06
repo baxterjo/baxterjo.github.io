@@ -2,7 +2,6 @@ use crate::components::{layout::Layout, page_not_found::PageNotFound};
 use crate::pages::{
     about::About,
     contact::Contact,
-    education::Education,
     experience::{experience_detail::ExperienceDetail, Experience},
     home::Home,
     projects::{
@@ -35,8 +34,6 @@ pub enum Route {
             #[route("/software/:name")]
             SoftwareProjectDetail {name: String},
         #[end_nest]
-        #[route("/education", Education)]
-        Education{},
         #[route("/contact", Contact)]
         Contact{},
     #[end_layout]

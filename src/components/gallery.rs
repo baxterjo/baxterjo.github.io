@@ -32,7 +32,7 @@ pub fn Gallery(
 
     let (gallery_title, mut gallery_content) = match gallery_type {
         GalleryType::Experience => (
-            "Experience",
+            "Experience and Education",
             content
                 .experience
                 .iter()

@@ -12,7 +12,6 @@ const CONTENT_DIR: Dir<'_> = include_dir!("$CARGO_MANIFEST_DIR/site_content");
 #[derive(Debug, Clone)]
 pub struct SiteContent {
     pub experience: HashMap<String, ContentSegment>,
-    pub education: HashMap<String, ContentSegment>,
     pub hardware_projects: HashMap<String, ContentSegment>,
     pub software_projects: HashMap<String, ContentSegment>,
 }
@@ -43,15 +42,6 @@ impl SiteContent {
             }
         };
 
-        let education_dir = CONTENT_DIR.get_dir("education").unwrap();
-        let education = match get_content_map(education_dir) {
-            Ok(x) => x,
-            Err(err) => {
-                error!("Got error while trying to fetch education content: {err}");
-                HashMap::<String, ContentSegment>::new()
-            }
-        };
-
         let hardware_dir = CONTENT_DIR.get_dir("hardware_projects").unwrap();
         let software_dir = CONTENT_DIR.get_dir("software_projects").unwrap();
 
@@ -72,7 +62,6 @@ impl SiteContent {
 
         SiteContent {
             experience,
-            education,
             hardware_projects,
             software_projects,
         }
@@ -169,9 +158,6 @@ mod test {
         let experience_dir = CONTENT_DIR.get_dir("experience").unwrap();
         let experience = get_content_map(experience_dir).unwrap();
 
-        let education_dir = CONTENT_DIR.get_dir("education").unwrap();
-        let education = get_content_map(education_dir).unwrap();
-
         let hardware_dir = CONTENT_DIR.get_dir("hardware_projects").unwrap();
         let software_dir = CONTENT_DIR.get_dir("software_projects").unwrap();
 
@@ -192,7 +178,6 @@ mod test {
 
         let site_content = SiteContent {
             experience,
-            education,
             hardware_projects,
             software_projects,
         };
