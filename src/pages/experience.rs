@@ -1,10 +1,36 @@
-use dioxus::prelude::*;
-
 pub mod experience_detail;
+use crate::components::gallery::{Gallery, GalleryType};
+use dioxus::prelude::*;
 
 #[component]
 pub fn Experience(cx: Scope) -> Element {
     render! {
-        h1 { "This is the experience page"  }
+        ExperienceHeaderWrap{}
+        Gallery{ gallery_type: GalleryType::Experience , show_title: false}
+    }
+}
+
+#[component]
+fn ExperienceHeaderWrap(cx: Scope) -> Element {
+    render! {
+        div {
+            id: "work-wrap-non-bs",
+            div {
+                class: "container-lg",
+                div {
+                    class: "row justify-content-center",
+                    div {
+                        class: "col-lg-6",
+                        h4 {
+                            "SO YOU WANT TO KNOW"
+                        }
+                        h1 {
+                            "WHERE I'VE BEEN"
+                        }
+
+                    }
+                }
+            }
+        }
     }
 }

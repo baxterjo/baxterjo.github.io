@@ -5,7 +5,7 @@ use crate::content::SiteContent;
 use crate::markdown::Markdown;
 
 #[component]
-pub fn ProjectDetail<'a>(cx: Scope, title: &'a str, content: &'a str) -> Element {
+fn ProjectDetail<'a>(cx: Scope, title: &'a str, content: &'a str) -> Element {
     render! {
         ProjectDetailHeaderWrap{ title: "{title}"}
         div {
@@ -15,7 +15,7 @@ pub fn ProjectDetail<'a>(cx: Scope, title: &'a str, content: &'a str) -> Element
                 div {
                     class: "col-lg-8",
                     Markdown{
-                        class: "content centered img-lg container table",
+                        class: "content centered img-lg container",
                         content: "{content}"
                     }
 

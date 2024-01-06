@@ -112,6 +112,11 @@ a:active {
   margin-top: 80px;
 }
 
+.content table {
+  width: 100%;
+  table-layout: fixed;
+}
+
 
 .navbar-brand {
   font-weight: 700;

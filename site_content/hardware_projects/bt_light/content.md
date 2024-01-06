@@ -3,6 +3,13 @@
 
 Our client had a working Bluetooth mesh light switch running on the CSR API. When CSR and BT SIG joined forces, our clients hardware and firmware went out of date. My task was to get the client's existing devices running on BT SIG mesh API. My task was to provide a proof of concept that the client could take to a conference to show off.
 
+#### SKILLS USED
+
+|   |  |
+|---|---|
+|Hardware Debugging| BT Mesh|
+| Nordic SDK | Presentation |
+
 #### HACK IT
 
 ![](/img/hardware_projects/bt_light/btsig2.jpg)

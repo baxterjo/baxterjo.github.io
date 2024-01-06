@@ -2,6 +2,7 @@ use crate::content::{ContentSegment, SiteContent};
 use crate::router::Route;
 use dioxus::prelude::*;
 use dioxus_router::prelude::*;
+use log::debug;
 use toml::value::Date;
 
 #[derive(Debug, Clone, PartialEq)]
@@ -19,41 +20,12 @@ pub struct GalleryCardArgs<'a> {
 }
 
 #[component]
-fn GalleryCard<'a>(
+pub fn Gallery(
     cx: Scope,
-    title: Option<&'a str>,
-    img_path: &'a str,
-    route_to: Route,
-    description: Option<&'a str>,
+    max_cards: Option<usize>,
+    gallery_type: GalleryType,
+    show_title: bool,
 ) -> Element {
-    render! {
-        div {
-            class: "col-md-4 col-sm-6",
-            div {
-                class: "card bg-light text-white mx-1",
-                img {
-                    class: "card-img",
-                    src:*img_path
-                }
-                Link {
-                    class: "card-img-overlay",
-                    to: route_to.clone(),
-                    h5 {
-                        class: "card-title",
-                        title
-                    }
-                    p {
-                        class: "card-text",
-                        description
-                    }
-                }
-            }
-        }
-    }
-}
-
-#[component]
-pub fn Gallery(cx: Scope, max_cards: Option<usize>, gallery_type: GalleryType) -> Element {
     let content = &*use_shared_state::<SiteContent>(cx).unwrap().read();
 
     let max_cards = max_cards.unwrap_or(usize::MAX);
@@ -81,7 +53,11 @@ pub fn Gallery(cx: Scope, max_cards: Option<usize>, gallery_type: GalleryType) -
     let mut cards: Vec<GalleryCardArgs> = vec![];
     for (itr, (id, info)) in gallery_content.into_iter().enumerate() {
         if itr < max_cards {
-            let title = info.config.title.as_deref().unwrap_or("");
+            let title = if *show_title {
+                info.config.title.as_deref().unwrap_or("")
+            } else {
+                ""
+            };
             let img_path = &info.config.thumbnail;
 
             let route_to = match gallery_type {
@@ -103,6 +79,8 @@ pub fn Gallery(cx: Scope, max_cards: Option<usize>, gallery_type: GalleryType) -
             break;
         }
     }
+
+    debug!("Making gallery {gallery_type:#?} with cards: {cards:#?}");
 
     let cards_rendered = cards.iter().map(|card| {
         render! {
@@ -139,5 +117,39 @@ pub fn Gallery(cx: Scope, max_cards: Option<usize>, gallery_type: GalleryType) -
             }
         }
 
+    }
+}
+
+#[component]
+fn GalleryCard<'a>(
+    cx: Scope,
+    title: Option<&'a str>,
+    img_path: &'a str,
+    route_to: Route,
+    description: Option<&'a str>,
+) -> Element {
+    render! {
+        div {
+            class: "col-md-4 col-sm-6",
+            div {
+                class: "card bg-light text-white mx-1",
+                img {
+                    class: "card-img",
+                    src:*img_path
+                }
+                Link {
+                    class: "card-img-overlay",
+                    to: route_to.clone(),
+                    h5 {
+                        class: "card-title",
+                        title
+                    }
+                    p {
+                        class: "card-text",
+                        description
+                    }
+                }
+            }
+        }
     }
 }

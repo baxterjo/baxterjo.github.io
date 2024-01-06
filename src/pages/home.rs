@@ -20,9 +20,9 @@ pub fn Home(cx: Scope) -> Element {
             }
         }
 
-        Gallery{max_cards:3, gallery_type: GalleryType::Experience}
-        Gallery{max_cards:3, gallery_type: GalleryType::SoftwareProjects}
-        Gallery{max_cards:3, gallery_type: GalleryType::HardwareProjects}
+        Gallery{max_cards:3, gallery_type: GalleryType::Experience, show_title: false}
+        Gallery{max_cards:3, gallery_type: GalleryType::SoftwareProjects, show_title: true}
+        Gallery{max_cards:3, gallery_type: GalleryType::HardwareProjects, show_title: true}
     }
 }
 

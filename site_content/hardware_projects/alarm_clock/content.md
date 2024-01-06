@@ -10,7 +10,7 @@ The final device is an FM alarm clock with local and remote temperature sensors 
 |   |  |
 |---|---|
 |Embedded System Design| C Programming Language|
-| Make | Linux Operating System |
+| GNU Make | Linux Operating System |
 
 #### THE BRAINS OF THE OPERATION
 

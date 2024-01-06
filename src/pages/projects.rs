@@ -8,8 +8,8 @@ use crate::components::gallery::{Gallery, GalleryType};
 pub fn ProjectsRoot(cx: Scope) -> Element {
     render! {
         ProjectHeaderWrap {}
-        Gallery{ gallery_type: GalleryType::SoftwareProjects}
-        Gallery{ gallery_type: GalleryType::HardwareProjects}
+        Gallery{ gallery_type: GalleryType::SoftwareProjects, show_title: true}
+        Gallery{ gallery_type: GalleryType::HardwareProjects, show_title: true}
     }
 }
 
