@@ -13,7 +13,7 @@ pub fn NavBar(cx: Scope) -> Element {
     // debug!("From Str: {:?}", about_route);
     render! {
         nav {
-            class: "navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top",
+            class: "navbar sticky-top navbar-expand-lg navbar-dark bg-dark",
             div {
                 class: "container-lg",
                 div {

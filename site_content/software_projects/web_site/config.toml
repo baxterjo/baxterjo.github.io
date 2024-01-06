@@ -1,0 +1,5 @@
+title = "This Website"
+thumbnail = "/img/software_projects/web_site/website.png"
+description = "Meta! This website is written in Rust and compiles to WASM using the Dioxus framework."
+date_added = 2023-01-02
+priority_level = 0
