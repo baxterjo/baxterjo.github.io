@@ -26,12 +26,6 @@ pub fn Footer(cx: Scope) -> Element {
 
                     div {
                         class: "col-md-6 col-sm-12",
-                        p {
-                            class:"mt-2",
-                            "© Styling copyrights "
-                            strong {"Instant"}
-                            " All Rights Reserved"
-                        }
                         "Styling created with Instant template by "
                         a {
                             href:"https://templatemag.com/",

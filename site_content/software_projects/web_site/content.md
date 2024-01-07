@@ -1,7 +1,7 @@
 
 #### ABOUT THE PROJECT
 
-This website is my first foray into building a GUI using Rust. I built a static HTML website (now on an [archive branch](https://github.com/baxterjo/baxterjo.github.io/tree/archive/old-site)) on my way out of college in 2020 and decided that upgrading it to a web app would be great practice for developing my frontend skills.
+This website is my first foray into building a GUI using Rust. I built a static HTML website (now on an [archive branch](https://github.com/baxterjo/baxterjo.github.io/tree/archive/old-site)) on my way out of college in 2020 and decided that upgrading it to a web app would be great practice for developing my frontend skills for other personal projects I want to work on.
 
 #### SKILLS USED
 
@@ -30,8 +30,10 @@ Both of these components are written once and propagate everywhere, dynamic styl
 
 #### Adding Content
 
-Another huge challenge on the old site was adding content. I was literally copy / pasting the raw HTML from a different page and editing the body of the page for each 'project' and 'experience 'page in the site. This version has a `site_content` directory at the root of the repository with a specific structure that allows me to add content in markdown and it is baked into the binary. So the next time I want to add a page, I add a folder with the page title, and some config options and its shipped with the next build. I realized about halfway through the project that I had basically recrated [Jekyll](https://jekyllrb.com/).
+Another huge challenge on the old site was adding content. I was literally copy / pasting the raw HTML from a different page and editing the body of the page for each 'project' and 'experience 'page in the site. This version has a `site_content` directory at the root of the repository with a specific structure that allows me to add content in markdown and it is baked into the binary. So the next time I want to add a page, I add a folder with the page title, and some config options and its shipped with the next build. I realized about halfway through the project that I had basically recreated [Jekyll](https://jekyllrb.com/).
 
 #### Bootstrap 5
 
 The last major upgrade from the old site is migrating from Bootstrap 3 to Bootstrap 5. Since I am not a frontend developer, figuring out the CSS framework was the lowest velocity portion of the project. The styling of this site is based off of a template from [TemplateMag](https://templatemag.com/) that used bootstrap 3. I had originally considered migrating to [tailwindcss](https://tailwindcss.com/) at the recommendation of the Dioxus team, but decided Bootstrap would work for my needs.
+
+Check out the repository for this website [here](https://github.com/baxterjo/baxterjo.github.io)!
