@@ -1,12 +1,11 @@
-This is a professional portfolio for **Jordan Baxter**.
+# Portfolio Website
 
-All information in this portfolio and source code referenced by this portfolio and claimed in descriptions as the work of **Jordan Baxter** is the soul intellectual property of **Jordan Baxter**. Shared intellectual property rights will be cited in descriptions of projects.
+## Adding Content
 
-This portfolio is intended to present the employment qualities of **Jordan Baxter** and should not be used for any other purpose.
+To add a new page to the site in the `about`, `experience`, or `projects` tree in the website, add a new content directory to the corresponding location in the `site_content` directory.
 
-Information and intellectual rights for the layout of this portfolio are given below:
+### Images and Thumbnails
 
-Template Name: Instant
-Template URL: <https://templatemag.com/instant-bootstrap-personal-template/>
-Author: <TemplateMag.com>
-License: <https://templatemag.com/license/>
+Thumbnails should have a 3:2 aspect ratio (or they won't show up well in the card galleries on mobile)
+
+The location of assets should be in the `public/img` directory and follow the same file structure as the `site_content` directory.
