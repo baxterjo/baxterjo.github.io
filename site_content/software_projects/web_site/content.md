@@ -1,9 +1,7 @@
 
 #### ABOUT THE PROJECT
 
-This website is my first foray into building a GUI using Rust. I built a static HTML website (now on an [archive branch](https://github.com/baxterjo/baxterjo.github.io/tree/archive/old-site)) on my way out of college in 2020 and decided that upgrading it to a webapp would be great practice for developing my frontend skills.
-
-I would also really like to drive the point home that **I am not a frontend developer** so this website is in a domain that I am **not** good at.
+This website is my first foray into building a GUI using Rust. I built a static HTML website (now on an [archive branch](https://github.com/baxterjo/baxterjo.github.io/tree/archive/old-site)) on my way out of college in 2020 and decided that upgrading it to a web app would be great practice for developing my frontend skills.
 
 #### SKILLS USED
 
@@ -16,7 +14,7 @@ I would also really like to drive the point home that **I am not a frontend deve
 
 ![](/img/software_projects/web_site/dioxus.png)
 
-Dioxus is a framework that allows me to compile this application to WASM from Rust. It is heavily inspired by the very popular [React](https://react.dev/) framework and has many of the same concepts. This framework (and all Rust GUI frameworks for that matter) is still very much in it's adolescent phase, but it is gaining traction fast and has a very active and dedicated core team. Big shout-out to github user [ealmloff](https://github.com/ealmloff) for responding to my posted issues almost always same day and being patient with my newbie frontend skills.
+Dioxus is a framework that allows me to compile this application to WASM from Rust. It is heavily inspired by the very popular [React](https://react.dev/) framework and has many of the same concepts. This framework (and all Rust GUI frameworks for that matter) is still very much in it's adolescent phase, but it is gaining traction fast and has a very active and dedicated core team. Big shout-out to github user [ealmloff](https://github.com/ealmloff) for responding to my posted issues almost always same day and being patient with my newbie frontend skills. This framework made it easy for a **non-frontend** developer like me to get things running.
 
 #### Shared Components
 
