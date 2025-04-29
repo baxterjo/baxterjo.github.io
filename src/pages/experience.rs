@@ -3,16 +3,16 @@ use crate::components::gallery::{Gallery, GalleryType};
 use dioxus::prelude::*;
 
 #[component]
-pub fn Experience(cx: Scope) -> Element {
-    render! {
+pub fn Experience() -> Element {
+    rsx! {
         ExperienceHeaderWrap{}
         Gallery{ gallery_type: GalleryType::Experience , show_title: false}
     }
 }
 
 #[component]
-fn ExperienceHeaderWrap(cx: Scope) -> Element {
-    render! {
+fn ExperienceHeaderWrap() -> Element {
+    rsx! {
         div {
             id: "work-wrap-non-bs",
             div {

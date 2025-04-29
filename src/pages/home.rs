@@ -2,8 +2,8 @@ use crate::components::gallery::{Gallery, GalleryType};
 use dioxus::prelude::*;
 
 #[component]
-pub fn Home(cx: Scope) -> Element {
-    render! {
+pub fn Home() -> Element {
+    rsx! {
         HomePageHeaderWrap {}
 
 
@@ -28,8 +28,8 @@ pub fn Home(cx: Scope) -> Element {
 }
 
 #[component]
-fn HomePageHeaderWrap(cx: Scope) -> Element {
-    render! {
+fn HomePageHeaderWrap() -> Element {
+    rsx! {
         div {
             id: "home-page-header-wrap-non-bs",
             div {

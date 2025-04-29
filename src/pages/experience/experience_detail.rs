@@ -4,9 +4,11 @@ use crate::markdown::Markdown;
 use dioxus::prelude::*;
 
 #[component]
-pub fn ExperienceDetail(cx: Scope, name: String) -> Element {
-    let content = &*use_shared_state::<SiteContent>(cx).unwrap().read();
-    let content_info = content.experience.get(name);
+pub fn ExperienceDetail(name: String) -> Element {
+    let content_sig = use_context::<Signal<SiteContent>>();
+    let content = content_sig.read();
+
+    let content_info = content.experience.get(&name);
 
     match content_info {
         Some(segment) => {
@@ -14,7 +16,7 @@ pub fn ExperienceDetail(cx: Scope, name: String) -> Element {
             let md_content = &segment.markdown;
             let description = segment.config.description.as_deref().unwrap_or("");
 
-            render! {
+            rsx! {
                 ExperienceDetailHeaderWrap{ title: "{title}", description: "{description}"}
                 div {
                     class: "container-lg",
@@ -33,7 +35,7 @@ pub fn ExperienceDetail(cx: Scope, name: String) -> Element {
             }
         }
         None => {
-            render! {
+            rsx! {
                 PageNotFound{route: vec![name.clone()]}
             }
         }
@@ -41,8 +43,11 @@ pub fn ExperienceDetail(cx: Scope, name: String) -> Element {
 }
 
 #[component]
-fn ExperienceDetailHeaderWrap<'a>(cx: Scope, title: &'a str, description: &'a str) -> Element {
-    render! {
+fn ExperienceDetailHeaderWrap(
+    title: ReadOnlySignal<String>,
+    description: ReadOnlySignal<String>,
+) -> Element {
+    rsx! {
         div {
             id: "work-wrap-non-bs",
             div {

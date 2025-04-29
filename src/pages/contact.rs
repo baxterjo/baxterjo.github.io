@@ -1,8 +1,8 @@
 use dioxus::prelude::*;
 
 #[component]
-pub fn Contact(cx: Scope) -> Element {
-    render! {
+pub fn Contact() -> Element {
+    rsx! {
         ContactHeaderWrap{}
         div {
             class: "py-5 bg-light",
@@ -32,8 +32,8 @@ pub fn Contact(cx: Scope) -> Element {
 }
 
 #[component]
-fn ContactHeaderWrap(cx: Scope) -> Element {
-    render! {
+fn ContactHeaderWrap() -> Element {
+    rsx! {
         div {
             id: "contactwrap",
             div {

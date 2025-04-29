@@ -1,7 +1,6 @@
 use crate::content::{ContentSegment, SiteContent};
 use crate::router::Route;
 use dioxus::prelude::*;
-use dioxus_router::prelude::*;
 use log::debug;
 use toml::value::Date;
 
@@ -20,13 +19,9 @@ pub struct GalleryCardArgs<'a> {
 }
 
 #[component]
-pub fn Gallery(
-    cx: Scope,
-    max_cards: Option<usize>,
-    gallery_type: GalleryType,
-    show_title: bool,
-) -> Element {
-    let content = &*use_shared_state::<SiteContent>(cx).unwrap().read();
+pub fn Gallery(max_cards: Option<usize>, gallery_type: GalleryType, show_title: bool) -> Element {
+    let content_sig = use_context::<Signal<SiteContent>>();
+    let content = content_sig.read();
 
     let max_cards = max_cards.unwrap_or(usize::MAX);
 
@@ -53,7 +48,7 @@ pub fn Gallery(
     let mut cards: Vec<GalleryCardArgs> = vec![];
     for (itr, (id, info)) in gallery_content.into_iter().enumerate() {
         if itr < max_cards {
-            let title = if *show_title {
+            let title = if show_title {
                 info.config.title.as_deref().unwrap_or("")
             } else {
                 ""
@@ -83,17 +78,17 @@ pub fn Gallery(
     debug!("Making gallery {gallery_type:#?} with cards: {cards:#?}");
 
     let cards_rendered = cards.iter().map(|card| {
-        render! {
-            GalleryCard{
-                title:"{card.title}",
-                img_path:"{card.img_path}",
-                route_to:card.route_to.clone(),
-                description: "{card.description}"
-            }
+        rsx! {
+            GalleryCard {
+            title: "{card.title}",
+            img_path: "{card.img_path}",
+            route_to: card.route_to.clone(),
+            description: "{card.description}",
+        }
         }
     });
 
-    render! {
+    rsx! {
         div {
             class: "py-5 bg-light",
             div {
@@ -108,7 +103,7 @@ pub fn Gallery(
                     class: "row",
                     div {
                         class: "card-group justify-content-left",
-                        cards_rendered
+                        {cards_rendered}
 
                     }
                 }
@@ -121,21 +116,20 @@ pub fn Gallery(
 }
 
 #[component]
-fn GalleryCard<'a>(
-    cx: Scope,
-    title: Option<&'a str>,
-    img_path: &'a str,
+fn GalleryCard(
+    title: ReadOnlySignal<Option<String>>,
+    img_path: ReadOnlySignal<String>,
     route_to: Route,
-    description: Option<&'a str>,
+    description: ReadOnlySignal<Option<String>>,
 ) -> Element {
-    render! {
+    rsx! {
         div {
             class: "col-md-4 col-sm-6 py-1",
             div {
                 class: "card h-100 bg-light text-white mx-1",
                 img {
                     class: "card-img h-100",
-                    src:*img_path
+                    src:img_path
                 }
                 Link {
                     class: "card-img-overlay",
@@ -146,7 +140,7 @@ fn GalleryCard<'a>(
                     }
                     p {
                         class: "card-text",
-                        description
+                        {description}
                     }
                 }
             }

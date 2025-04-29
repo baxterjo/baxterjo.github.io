@@ -1,17 +1,16 @@
 use crate::capitalize;
 use crate::router::Route;
 use dioxus::prelude::*;
-use dioxus_router::prelude::*;
 use log::debug;
 
 #[component]
-pub fn NavBar(cx: Scope) -> Element {
+pub fn NavBar() -> Element {
     let statics = Route::static_routes();
     debug!("STATICS: {:?}", statics);
     debug!("SITE_MAP: {:?}", Route::SITE_MAP);
     // let about_route = Route::from_str("/about");
     // debug!("From Str: {:?}", about_route);
-    render! {
+    rsx! {
         nav {
             class: "navbar sticky-top navbar-expand-lg navbar-dark bg-dark",
             div {
@@ -71,9 +70,9 @@ pub fn NavBar(cx: Scope) -> Element {
 }
 
 #[component]
-fn NavLink(cx: Scope, route_to: Route) -> Element {
-    let current_route: Route = use_route(&cx).unwrap();
-    let (route_name, link_class) = if *route_to == (Route::Home {}) {
+fn NavLink(route_to: Route) -> Element {
+    let current_route: Route = use_route();
+    let (route_name, link_class) = if route_to == (Route::Home {}) {
         let link_class = if current_route == (Route::Home {}) {
             "nav-link active"
         } else {
@@ -91,11 +90,11 @@ fn NavLink(cx: Scope, route_to: Route) -> Element {
         (route_name, link_class)
     };
 
-    render! {
+    rsx! {
         Link {
             class: link_class,
             to: route_to.clone(),
-            route_name,
+            {route_name},
         }
     }
 }

@@ -5,8 +5,8 @@ pub mod page_not_found;
 use dioxus::prelude::*;
 
 #[component]
-pub fn Footer(cx: Scope) -> Element {
-    render! {
+pub fn Footer() -> Element {
+    rsx! {
         div {
             id: "copyrights",
             div {

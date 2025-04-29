@@ -7,8 +7,8 @@ const ABOUT_MD: &str = include_str!(concat!(
 ));
 
 #[component]
-pub fn About(cx: Scope) -> Element {
-    render! {
+pub fn About() -> Element {
+    rsx! {
         AboutHeaderWrap {}
         div {
             class: "container-lg",
@@ -39,8 +39,8 @@ pub fn About(cx: Scope) -> Element {
 }
 
 #[component]
-fn AboutHeaderWrap(cx: Scope) -> Element {
-    render! {
+fn AboutHeaderWrap() -> Element {
+    rsx! {
         div {
             id: "work-wrap-non-bs",
             div {
