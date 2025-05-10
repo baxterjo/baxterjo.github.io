@@ -25,7 +25,7 @@ pub fn Markdown(props: MarkdownProps) -> Element {
         div {
             id: "{&*props.id.read()}",
             class: "{&*props.class.read()}",
-            dangerous_inner_html: "{html_buf}"
+            dangerous_inner_html: "{html_buf}",
         }
     }
 }

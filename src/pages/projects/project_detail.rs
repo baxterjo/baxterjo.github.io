@@ -7,18 +7,15 @@ use crate::markdown::Markdown;
 #[component]
 fn ProjectDetail(title: ReadOnlySignal<String>, content: ReadOnlySignal<String>) -> Element {
     rsx! {
-        ProjectDetailHeaderWrap{ title: "{title}"}
-        div {
-            class: "container-lg",
-            div {
-                class: "row justify-content-center",
-                div {
-                    class: "col-lg-8",
-                    Markdown{
+        ProjectDetailHeaderWrap { title: "{title}" }
+        div { class: "container-lg",
+            div { class: "row justify-content-center",
+                div { class: "col-lg-8",
+                    Markdown {
                         class: "content centered img-lg container",
-                        content: "{content}"
+                        content: "{content}",
                     }
-
+                
                 }
             }
         }
@@ -37,15 +34,12 @@ pub fn HardwareProjectDetail(name: String) -> Element {
             let title = segment.config.title.as_deref().unwrap_or("");
             let md_content = &segment.markdown;
             rsx! {
-                ProjectDetail {
-                    title: "{title}",
-                    content:"{md_content}"
-                }
+                ProjectDetail { title: "{title}", content: "{md_content}" }
             }
         }
         None => {
             rsx! {
-                PageNotFound{route: vec![name.clone()]}
+                PageNotFound { route: vec![name.clone()] }
             }
         }
     }
@@ -63,15 +57,12 @@ pub fn SoftwareProjectDetail(name: String) -> Element {
             let title = segment.config.title.as_deref().unwrap_or("");
             let md_content = &segment.markdown;
             rsx! {
-                ProjectDetail {
-                    title: "{title}",
-                    content:"{md_content}"
-                }
+                ProjectDetail { title: "{title}", content: "{md_content}" }
             }
         }
         None => {
             rsx! {
-                PageNotFound{route: vec![name.clone()]}
+                PageNotFound { route: vec![name.clone()] }
             }
         }
     }
@@ -80,18 +71,12 @@ pub fn SoftwareProjectDetail(name: String) -> Element {
 #[component]
 fn ProjectDetailHeaderWrap(title: ReadOnlySignal<String>) -> Element {
     rsx! {
-        div {
-            id: "work-wrap-non-bs",
-            div {
-                class: "container-lg",
-                div {
-                    class: "row justify-content-center",
-                    div {
-                        class: "col-lg-6",
-                        h1 {
-                            "{title}"
-                        }
-
+        div { id: "work-wrap-non-bs",
+            div { class: "container-lg",
+                div { class: "row justify-content-center",
+                    div { class: "col-lg-6",
+                        h1 { "{title}" }
+                    
                     }
                 }
             }

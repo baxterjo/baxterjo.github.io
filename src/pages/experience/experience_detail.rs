@@ -17,18 +17,15 @@ pub fn ExperienceDetail(name: String) -> Element {
             let description = segment.config.description.as_deref().unwrap_or("");
 
             rsx! {
-                ExperienceDetailHeaderWrap{ title: "{title}", description: "{description}"}
-                div {
-                    class: "container-lg",
-                    div {
-                        class: "row justify-content-center mt-3",
-                        div {
-                            class: "col-lg-8",
-                            Markdown{
+                ExperienceDetailHeaderWrap { title: "{title}", description: "{description}" }
+                div { class: "container-lg",
+                    div { class: "row justify-content-center mt-3",
+                        div { class: "col-lg-8",
+                            Markdown {
                                 class: "content centered img-lg",
-                                content: "{md_content}"
+                                content: "{md_content}",
                             }
-
+                        
                         }
                     }
                 }
@@ -36,7 +33,7 @@ pub fn ExperienceDetail(name: String) -> Element {
         }
         None => {
             rsx! {
-                PageNotFound{route: vec![name.clone()]}
+                PageNotFound { route: vec![name.clone()] }
             }
         }
     }
@@ -48,21 +45,13 @@ fn ExperienceDetailHeaderWrap(
     description: ReadOnlySignal<String>,
 ) -> Element {
     rsx! {
-        div {
-            id: "work-wrap-non-bs",
-            div {
-                class: "container-lg",
-                div {
-                    class: "row justify-content-center",
-                    div {
-                        class: "col-lg-6",
-                        h1 {
-                            "{title}"
-                        }
-                        h4 {
-                            "{description}"
-                        }
-
+        div { id: "work-wrap-non-bs",
+            div { class: "container-lg",
+                div { class: "row justify-content-center",
+                    div { class: "col-lg-6",
+                        h1 { "{title}" }
+                        h4 { "{description}" }
+                    
                     }
                 }
             }

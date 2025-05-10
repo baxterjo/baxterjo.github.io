@@ -30,8 +30,8 @@ pub fn Layout() -> Element {
     }
 
     rsx! {
-        NavBar{}
+        NavBar {}
         Outlet::<Route> {}
-        Footer{}
+        Footer {}
     }
 }

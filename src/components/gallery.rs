@@ -80,38 +80,27 @@ pub fn Gallery(max_cards: Option<usize>, gallery_type: GalleryType, show_title: 
     let cards_rendered = cards.iter().map(|card| {
         rsx! {
             GalleryCard {
-            title: "{card.title}",
-            img_path: "{card.img_path}",
-            route_to: card.route_to.clone(),
-            description: "{card.description}",
-        }
+                title: "{card.title}",
+                img_path: "{card.img_path}",
+                route_to: card.route_to.clone(),
+                description: "{card.description}",
+            }
         }
     });
 
     rsx! {
-        div {
-            class: "py-5 bg-light",
-            div {
-                class: "container-lg",
-                div {
-                    class: "row centered",
-                    h2 {
-                        "{gallery_title}"
-                    }
+        div { class: "py-5 bg-light",
+            div { class: "container-lg",
+                div { class: "row centered",
+                    h2 { "{gallery_title}" }
                 }
-                div {
-                    class: "row",
-                    div {
-                        class: "card-group justify-content-left",
-                        {cards_rendered}
-
-                    }
+                div { class: "row",
+                    div { class: "card-group justify-content-left", {cards_rendered} }
                 }
-
+            
 
             }
         }
-
     }
 }
 
@@ -123,25 +112,12 @@ fn GalleryCard(
     description: ReadOnlySignal<Option<String>>,
 ) -> Element {
     rsx! {
-        div {
-            class: "col-md-4 col-sm-6 py-1",
-            div {
-                class: "card h-100 bg-light text-white mx-1",
-                img {
-                    class: "card-img h-100",
-                    src:img_path
-                }
-                Link {
-                    class: "card-img-overlay",
-                    to: route_to.clone(),
-                    h5 {
-                        class: "card-title",
-                        title
-                    }
-                    p {
-                        class: "card-text",
-                        {description}
-                    }
+        div { class: "col-md-4 col-sm-6 py-1",
+            div { class: "card h-100 bg-light text-white mx-1",
+                img { class: "card-img h-100", src: img_path }
+                Link { class: "card-img-overlay", to: route_to.clone(),
+                    h5 { class: "card-title", title }
+                    p { class: "card-text", {description} }
                 }
             }
         }

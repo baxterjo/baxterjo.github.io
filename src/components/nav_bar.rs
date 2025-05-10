@@ -11,61 +11,43 @@ pub fn NavBar() -> Element {
     // let about_route = Route::from_str("/about");
     // debug!("From Str: {:?}", about_route);
     rsx! {
-        nav {
-            class: "navbar sticky-top navbar-expand-lg navbar-dark bg-dark",
-            div {
-                class: "container-lg",
-                div {
-                    class:"navbar-header",
+        nav { class: "navbar sticky-top navbar-expand-lg navbar-dark bg-dark",
+            div { class: "container-lg",
+                div { class: "navbar-header",
                     button {
                         r#type: "button",
                         class: "navbar-toggler",
-                        "data-bs-toggle":"collapse",
-                        "data-bs-target":".navbar-collapse",
-                        span {
-                            class: "navbar-toggler-icon"
-                        }
+                        "data-bs-toggle": "collapse",
+                        "data-bs-target": ".navbar-collapse",
+                        span { class: "navbar-toggler-icon" }
                     }
-                    Link {
-                        class: "navbar-brand ms-2",
-                        to: Route::Home {},
-                        "JORDAN BAXTER"
-                    }
-
+                    Link { class: "navbar-brand ms-2", to: Route::Home {}, "JORDAN BAXTER" }
+                
                 }
-                div {
-                    class: "navbar-collapse collapse",
-                    ul {
-                        class: "navbar-nav ms-auto",
-                        li {
-                            class: "nav-item",
-                            NavLink{ route_to: Route::Home{}}
+                div { class: "navbar-collapse collapse",
+                    ul { class: "navbar-nav ms-auto",
+                        li { class: "nav-item",
+                            NavLink { route_to: Route::Home {} }
                         }
-                        li {
-                            class: "nav-item",
-                            NavLink { route_to: Route::About {  }}
+                        li { class: "nav-item",
+                            NavLink { route_to: Route::About {} }
                         }
-                        li {
-                            class: "nav-item",
-                            NavLink { route_to: Route::Experience {  }}
+                        li { class: "nav-item",
+                            NavLink { route_to: Route::Experience {} }
                         }
-                        li {
-                            class: "nav-item",
-                            NavLink { route_to: Route::ProjectsRoot {  }}
+                        li { class: "nav-item",
+                            NavLink { route_to: Route::ProjectsRoot {} }
                         }
-                        li {
-                            class: "nav-item",
-                            NavLink { route_to: Route::Contact {  }}
+                        li { class: "nav-item",
+                            NavLink { route_to: Route::Contact {} }
                         }
                     }
                 }
             }
-
+        
 
 
         }
-        // debug!("{:#?}", Route::SITE_MAP)
-
     }
 }
 
@@ -91,10 +73,6 @@ fn NavLink(route_to: Route) -> Element {
     };
 
     rsx! {
-        Link {
-            class: link_class,
-            to: route_to.clone(),
-            {route_name},
-        }
+        Link { class: link_class, to: route_to.clone(), {route_name} }
     }
 }
