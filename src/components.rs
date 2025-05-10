@@ -11,7 +11,7 @@ pub fn Footer() -> Element {
             div { class: "container-fluid",
                 div { class: "credits row align-items-center",
                     div { class: "col-md-3 col-sm-12", id: "social",
-                        a { href: "http://www.linkedin.com/in/jordan-baxterece",
+                        a { href: "https://www.linkedin.com/in/baxterjo",
                             i { class: "fa fa-linkedin" }
                         }
                     }
@@ -33,9 +33,9 @@ pub fn Footer() -> Element {
                             }
                             "Powered by Dioxus"
                         }
-                    
+
                     }
-                
+
 
                 }
             }
