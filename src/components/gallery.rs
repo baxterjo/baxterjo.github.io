@@ -61,7 +61,6 @@ pub fn Gallery(max_cards: Option<usize>, gallery_type: GalleryType, show_title: 
                 GalleryType::SoftwareProjects => Route::SoftwareProjectDetail { name: id.clone() },
             };
 
-            Route::HardwareProjectDetail { name: id.clone() };
             let description = info.config.description.as_deref().unwrap_or("");
 
             cards.push(GalleryCardArgs {
@@ -97,7 +96,7 @@ pub fn Gallery(max_cards: Option<usize>, gallery_type: GalleryType, show_title: 
                 div { class: "row",
                     div { class: "card-group justify-content-left", {cards_rendered} }
                 }
-            
+
 
             }
         }

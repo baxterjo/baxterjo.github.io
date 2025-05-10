@@ -12,7 +12,7 @@ Persistence of vision is a principle that is used in most forms of visual displa
 
 #### MEET THE TEAM
 
-![](/img/hardware_projects/pov_wand/pov0.jpg)
+![](/public/img/hardware_projects/pov_wand/pov0.jpg)
 
 Meet Suyang Liu and Anthony Bishop, these two and I lived in the lab for two and a half weeks to get this thing going. Our message was not-so-subtle.
 

@@ -25,23 +25,23 @@ reload_html = true
 index_on_404 = true
 
 # Which files or dirs will be monitored
-watch_path = ["src", "public", "public/css", "site_content"]
+watch_path = ["src", "public", "public/css", "site_content/*"]
 
 # Include style or script assets
 [web.resource]
 
 # CSS style file
 style = [
-    "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css",
-    "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css",
-    "https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700",
-    "/css/font-awesome/css/font-awesome.min.css",
-    "/css/style.css",
+  "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css",
+  "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css",
+  "https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700",
+  "/css/font-awesome/css/font-awesome.min.css",
+  "/css/style.css",
 ]
 
 # Javascript code file
 script = [
-    "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js",
+  "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js",
 ]
 
 [web.resource.dev]
