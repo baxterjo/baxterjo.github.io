@@ -1,5 +1,5 @@
 title = "8-Bit Alarm Clock"
-thumbnail = "/img/hardware_projects/alarm_clock/clock1.jpg"
+thumbnail = "/assets/img/hardware_projects/alarm_clock/clock1.jpg"
 description = "An alarm clock made from scratch with an 8-bit AVR development board and jellybean parts."
 date_added = 2024-01-02
 priority_level = 0

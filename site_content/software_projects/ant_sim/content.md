@@ -12,6 +12,6 @@ This project was written as a final project to an antennas class in 2020. The pr
 
 #### A "Simple" Antenna Simulator
 
-![](/img/software_projects/ant_sim/antennasimulator.gif)
+![](/assets/img/software_projects/ant_sim/antennasimulator.gif)
 
 This antenna simulator was one of my first GUI applications. It was a final project for an antennas class that has a pretty open ended prompt. So instead of building an antenna (like had been done a million times before) I decided to build a virtual antenna. The simulator uses Tkinter as it's GUI framework and renders plots using matplotlib. Check out the [repository](https://github.com/baxterjo/simple-antenna-simulator)!
