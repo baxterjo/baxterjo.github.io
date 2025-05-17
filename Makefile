@@ -12,13 +12,22 @@ docs/404.html: docs/index.html
 setup_dev: .git/hooks/pre-commit
 
 .PHONY: pre_commit
-pre_commit: build docs/404.html
-	git add docs/
+pre_commit:
 	cargo test
 
+.PHONY: test
+test:
+	cargo test
 
-.PHONY: build
-	dx build --release
+.PHONY: clean
+clean:
+	cargo clean
+
+.PHONY: all
+all:
+	dx bundle --release
+	mv docs/public/* docs
+	cp docs/index.html docs/404.html
 
 
 .PHONY: serve_local
