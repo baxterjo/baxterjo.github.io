@@ -12,7 +12,7 @@ This website is my first foray into building a GUI using Rust. I built a static 
 
 #### Powered by...
 
-![](/img/software_projects/web_site/dioxus.png)
+![](/assets/img/software_projects/web_site/dioxus.png)
 
 Dioxus is a framework that allows me to compile this application to WASM from Rust. It is heavily inspired by the very popular [React](https://react.dev/) framework and has many of the same concepts. This framework (and all Rust GUI frameworks for that matter) is still very much in it's adolescent phase, but it is gaining traction fast and has a very active and dedicated core team. Big shout-out to github user [ealmloff](https://github.com/ealmloff) for responding to my posted issues almost always same day and being patient with my newbie frontend skills. This framework made it easy for a **non-frontend** developer like me to get things running.
 

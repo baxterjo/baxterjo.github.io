@@ -12,6 +12,6 @@ Completed in 2018, pong's revenge was one of my first programming projects ever!
 
 #### IT'S PONG!
 
-![](/img/software_projects/pongs_revenge/pongsrevenge_resize.gif)
+![](/assets/img/software_projects/pongs_revenge/pongsrevenge_resize.gif)
 
 Not much else to say! It keeps a high score in the filesystem, and follows the mouse for user input. Check out the repository [here](https://github.com/baxterjo/pongsRevenge)!

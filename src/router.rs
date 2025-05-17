@@ -10,7 +10,6 @@ use crate::pages::{
     },
 };
 use dioxus::prelude::*;
-use dioxus_router::prelude::*;
 
 #[derive(Routable, Clone, PartialEq, Debug)]
 #[rustfmt::skip]

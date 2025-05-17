@@ -5,20 +5,16 @@ use crate::content::SiteContent;
 use crate::markdown::Markdown;
 
 #[component]
-fn ProjectDetail<'a>(cx: Scope, title: &'a str, content: &'a str) -> Element {
-    render! {
-        ProjectDetailHeaderWrap{ title: "{title}"}
-        div {
-            class: "container-lg",
-            div {
-                class: "row justify-content-center",
-                div {
-                    class: "col-lg-8",
-                    Markdown{
+fn ProjectDetail(title: ReadOnlySignal<String>, content: ReadOnlySignal<String>) -> Element {
+    rsx! {
+        ProjectDetailHeaderWrap { title: "{title}" }
+        div { class: "container-lg",
+            div { class: "row justify-content-center",
+                div { class: "col-lg-8",
+                    Markdown {
                         class: "content centered img-lg container",
-                        content: "{content}"
+                        content: "{content}",
                     }
-
                 }
             }
         }
@@ -26,68 +22,59 @@ fn ProjectDetail<'a>(cx: Scope, title: &'a str, content: &'a str) -> Element {
 }
 
 #[component]
-pub fn HardwareProjectDetail(cx: Scope, name: String) -> Element {
-    let content = &*use_shared_state::<SiteContent>(cx).unwrap().read();
-    let content_info = content.hardware_projects.get(name);
+pub fn HardwareProjectDetail(name: String) -> Element {
+    let content_sig = use_context::<Signal<SiteContent>>();
+    let content = content_sig.read();
+
+    let content_info = content.hardware_projects.get(&name);
 
     match content_info {
         Some(segment) => {
             let title = segment.config.title.as_deref().unwrap_or("");
             let md_content = &segment.markdown;
-            render! {
-                ProjectDetail {
-                    title: "{title}",
-                    content:"{md_content}"
-                }
+            rsx! {
+                ProjectDetail { title: "{title}", content: "{md_content}" }
             }
         }
         None => {
-            render! {
-                PageNotFound{route: vec![name.clone()]}
+            rsx! {
+                PageNotFound { route: vec![name.clone()] }
             }
         }
     }
 }
 
 #[component]
-pub fn SoftwareProjectDetail(cx: Scope, name: String) -> Element {
-    let content = &*use_shared_state::<SiteContent>(cx).unwrap().read();
-    let content_info = content.software_projects.get(name);
+pub fn SoftwareProjectDetail(name: String) -> Element {
+    let content_sig = use_context::<Signal<SiteContent>>();
+    let content = content_sig.read();
+
+    let content_info = content.software_projects.get(&name);
 
     match content_info {
         Some(segment) => {
             let title = segment.config.title.as_deref().unwrap_or("");
             let md_content = &segment.markdown;
-            render! {
-                ProjectDetail {
-                    title: "{title}",
-                    content:"{md_content}"
-                }
+            rsx! {
+                ProjectDetail { title: "{title}", content: "{md_content}" }
             }
         }
         None => {
-            render! {
-                PageNotFound{route: vec![name.clone()]}
+            rsx! {
+                PageNotFound { route: vec![name.clone()] }
             }
         }
     }
 }
 
 #[component]
-fn ProjectDetailHeaderWrap<'a>(cx: Scope, title: &'a str) -> Element {
-    render! {
-        div {
-            id: "work-wrap-non-bs",
-            div {
-                class: "container-lg",
-                div {
-                    class: "row justify-content-center",
-                    div {
-                        class: "col-lg-6",
-                        h1 {
-                            "{title}"
-                        }
-
+fn ProjectDetailHeaderWrap(title: ReadOnlySignal<String>) -> Element {
+    rsx! {
+        div { id: "work-wrap-non-bs",
+            div { class: "container-lg",
+                div { class: "row justify-content-center",
+                    div { class: "col-lg-6",
+                        h1 { "{title}" }
                     }
                 }
             }

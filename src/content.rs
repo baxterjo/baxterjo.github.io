@@ -68,6 +68,12 @@ impl SiteContent {
     }
 }
 
+impl Default for SiteContent {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl ContentSegment {
     pub fn try_new(content_segment_dir: &Dir) -> Result<ContentSegment> {
         debug!("Fetching content segment from: {:#?}", content_segment_dir);
