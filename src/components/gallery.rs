@@ -96,7 +96,7 @@ pub fn Gallery(max_cards: Option<usize>, gallery_type: GalleryType, show_title: 
                 div { class: "row",
                     div { class: "card-group justify-content-left", {cards_rendered} }
                 }
-
+            
 
             }
         }

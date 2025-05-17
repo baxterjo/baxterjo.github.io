@@ -25,7 +25,6 @@ pub fn ExperienceDetail(name: String) -> Element {
                                 class: "content centered img-lg",
                                 content: "{md_content}",
                             }
-                        
                         }
                     }
                 }
@@ -51,7 +50,6 @@ fn ExperienceDetailHeaderWrap(
                     div { class: "col-lg-6",
                         h1 { "{title}" }
                         h4 { "{description}" }
-                    
                     }
                 }
             }

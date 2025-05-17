@@ -21,7 +21,6 @@ fn ProjectHeaderWrap() -> Element {
                     div { class: "col-lg-6",
                         h4 { "TAKE A LOOK AT MY" }
                         h1 { "PERSONAL PROJECTS" }
-                    
                     }
                 }
             }

@@ -20,9 +20,7 @@ pub fn Contact() -> Element {
                         margin_width: "0",
                         "Loading…"
                     }
-                
                 }
-            
             }
         }
     }
@@ -37,7 +35,6 @@ fn ContactHeaderWrap() -> Element {
                     div { class: "col-lg-6",
                         h4 { "INTERESTED IN WORKING WITH ME?" }
                         h1 { "LET'S GET IN TOUCH" }
-                    
                     }
                 }
             }

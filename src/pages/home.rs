@@ -17,7 +17,6 @@ pub fn Home() -> Element {
                 div { class: "row centered py-3",
 
                     h2 { "Personal Projects" }
-                
                 }
             }
         }

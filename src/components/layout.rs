@@ -12,7 +12,7 @@ pub fn Layout() -> Element {
     let route_split: Vec<&str> = route_str.split("/").collect();
     debug!("Got string split: {route_split:?}");
 
-    let title = if route_split[1] == "" {
+    let title = if route_split[1].is_empty() {
         "Jordan Baxter".to_string()
     } else {
         format!("Jordan Baxter - {}", capitalize(route_split[1]))

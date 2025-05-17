@@ -17,7 +17,7 @@ pub fn About() -> Element {
                         class: "img-fluid",
                         src: "/assets/img/about/headshot_cropped.jpg",
                     }
-
+                
                 }
             }
             div { class: "row justify-content-center my-3",
@@ -26,7 +26,7 @@ pub fn About() -> Element {
                         class: "content centered img-lg container",
                         content: "{ABOUT_MD}",
                     }
-
+                
                 }
             }
         }
@@ -42,7 +42,7 @@ fn AboutHeaderWrap() -> Element {
                     div { class: "col-lg-6",
                         h4 { "SO YOU'RE CURIOUS" }
                         h1 { "ABOUT ME" }
-
+                    
                     }
                 }
             }

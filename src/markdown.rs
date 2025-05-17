@@ -1,7 +1,7 @@
 #![allow(non_snake_case)]
 
 use dioxus::prelude::*;
-use pulldown_cmark::Parser;
+use pulldown_cmark::{Options, Parser};
 
 #[derive(Props, Clone, PartialEq)]
 pub struct MarkdownProps {
@@ -16,7 +16,7 @@ pub struct MarkdownProps {
 /// Render some text as markdown.
 pub fn Markdown(props: MarkdownProps) -> Element {
     let content = &*props.content.read();
-    let parser = Parser::new(content);
+    let parser = Parser::new_ext(content, Options::ENABLE_TABLES);
 
     let mut html_buf = String::new();
     pulldown_cmark::html::push_html(&mut html_buf, parser);

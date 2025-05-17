@@ -22,7 +22,6 @@ pub fn NavBar() -> Element {
                         span { class: "navbar-toggler-icon" }
                     }
                     Link { class: "navbar-brand ms-2", to: Route::Home {}, "JORDAN BAXTER" }
-                
                 }
                 div { class: "navbar-collapse collapse",
                     ul { class: "navbar-nav ms-auto",
@@ -45,7 +44,6 @@ pub fn NavBar() -> Element {
                 }
             }
         
-
 
         }
     }

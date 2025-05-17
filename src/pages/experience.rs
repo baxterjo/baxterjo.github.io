@@ -19,7 +19,6 @@ fn ExperienceHeaderWrap() -> Element {
                     div { class: "col-lg-6",
                         h4 { "YOU WANT TO KNOW" }
                         h1 { "WHERE I'VE BEEN" }
-                    
                     }
                 }
             }

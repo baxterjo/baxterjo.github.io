@@ -15,7 +15,6 @@ fn ProjectDetail(title: ReadOnlySignal<String>, content: ReadOnlySignal<String>)
                         class: "content centered img-lg container",
                         content: "{content}",
                     }
-                
                 }
             }
         }
@@ -76,7 +75,6 @@ fn ProjectDetailHeaderWrap(title: ReadOnlySignal<String>) -> Element {
                 div { class: "row justify-content-center",
                     div { class: "col-lg-6",
                         h1 { "{title}" }
-                    
                     }
                 }
             }
