@@ -12,8 +12,7 @@ docs/404.html: docs/index.html
 setup_dev: .git/hooks/pre-commit
 
 .PHONY: pre_commit
-pre_commit:
-	cargo test
+pre_commit: test
 
 .PHONY: test
 test:
