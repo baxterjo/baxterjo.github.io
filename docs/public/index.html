@@ -5,14 +5,20 @@
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="UTF-8" />
-  <link rel="preload" as="script" href="/./assets/baxterjo_webapp-35113bce20219465.js" crossorigin><link rel="preload" as="fetch" type="application/wasm" href="/./assets/baxterjo_webapp_bg-b409898fd26095f5.wasm" crossorigin></head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700">
+<link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="preload" as="script" href="/./assets/baxterjo_webapp-e66d783e279f024f.js" crossorigin><link rel="preload" as="fetch" type="application/wasm" href="/./assets/baxterjo_webapp_bg-6cde197690e18d4c.wasm" crossorigin></head>
   <body>
     <div id="main"></div>
   <script>
             // We can't use a module script here because we need to start the script immediately when streaming
-            import("/./assets/baxterjo_webapp-35113bce20219465.js").then(
+            import("/./assets/baxterjo_webapp-e66d783e279f024f.js").then(
                 ({ default: init }) => {
-                init("/./assets/baxterjo_webapp_bg-b409898fd26095f5.wasm").then((wasm) => {
+                init("/./assets/baxterjo_webapp_bg-6cde197690e18d4c.wasm").then((wasm) => {
                     if (wasm.__wbindgen_start == undefined) {
                     wasm.main();
                     }
