@@ -20,13 +20,17 @@ test:
 
 .PHONY: clean
 clean:
+	rm -rf docs/*
 	cargo clean
 
 .PHONY: all
-all:
-	dx bundle --release
+all: clean build
 	mv docs/public/* docs
 	cp docs/index.html docs/404.html
+
+.PHONY: build
+build:
+	dx bundle --release
 
 
 .PHONY: serve_local
