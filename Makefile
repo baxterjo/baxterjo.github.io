@@ -23,6 +23,5 @@ pre_commit: build docs/404.html
 
 .PHONY: serve_local
 serve_local:
-	npx tailwindcss -i ./input.css -o ./public/tailwind.css --watch & \
 	dx serve --hot-reload
 
