@@ -11,14 +11,14 @@
 <link rel="stylesheet" href="/assets/css/font-awesome/css/font-awesome.min.css">
 <link rel="stylesheet" href="/assets/css/style.css">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-<link rel="preload" as="script" href="/./assets/baxterjo_webapp-e66d783e279f024f.js" crossorigin><link rel="preload" as="fetch" type="application/wasm" href="/./assets/baxterjo_webapp_bg-1d612ed9db09337c.wasm" crossorigin></head>
+<link rel="preload" as="script" href="/./assets/baxterjo_webapp-46b786d4b2c85733.js" crossorigin><link rel="preload" as="fetch" type="application/wasm" href="/./assets/baxterjo_webapp_bg-f48b49830618e332.wasm" crossorigin></head>
   <body>
     <div id="main"></div>
   <script>
             // We can't use a module script here because we need to start the script immediately when streaming
-            import("/./assets/baxterjo_webapp-e66d783e279f024f.js").then(
+            import("/./assets/baxterjo_webapp-46b786d4b2c85733.js").then(
                 ({ default: init }) => {
-                init("/./assets/baxterjo_webapp_bg-1d612ed9db09337c.wasm").then((wasm) => {
+                init("/./assets/baxterjo_webapp_bg-f48b49830618e332.wasm").then((wasm) => {
                     if (wasm.__wbindgen_start == undefined) {
                     wasm.main();
                     }

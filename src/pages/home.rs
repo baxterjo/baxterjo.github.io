@@ -43,7 +43,7 @@ fn HomePageHeaderWrap() -> Element {
                         h4 { "HELLO, MY NAME IS" }
                         h1 { "JORDAN BAXTER" }
                         h4 {
-                            "FULL STACK IOT ENGINEER"
+                            "FULL STACK IOT / NETWORKING ENGINEER"
                             br {}
                             "AND SYSTEMS ARCHITECT"
                         }
