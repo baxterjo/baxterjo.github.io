@@ -15,7 +15,7 @@ pub fn About() -> Element {
                 div { class: "col-lg-5",
                     img {
                         class: "img-fluid",
-                        src: "/assets/img/about/headshot.jpeg",
+                        src: "/img/about/headshot.jpeg",
                     }
 
                 }
