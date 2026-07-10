@@ -1,8 +1,8 @@
 use crate::errors::WebAppError;
 use anyhow::Result;
 use include_dir::{include_dir, Dir, DirEntry};
-use log::error;
 use serde::Deserialize;
+use tracing::error;
 use std::collections::HashMap;
 use toml::value::Datetime;
 use urlencoding::encode;
@@ -119,7 +119,7 @@ fn get_content_map(content_type_path: &Dir) -> Result<HashMap<String, ContentSeg
                 let segment = match ContentSegment::try_from_file(file) {
                     Ok(x) => x,
                     Err(err) => {
-                        log::error!(
+                        error!(
                             "Got an error while trying to parse content at {} - {}",
                             path.display(),
                             err
@@ -157,8 +157,10 @@ mod test {
     use super::*;
     #[test]
     fn test_existing_content_directory_loads_content_correctly() {
-        let _ = env_logger::try_init();
-        log::debug!("Content Dir: {:#?}", CONTENT_DIR);
+        let _ = tracing_subscriber::fmt()
+            .with_env_filter(tracing_subscriber::EnvFilter::from_default_env())
+            .try_init();
+        tracing::debug!("Content Dir: {:#?}", CONTENT_DIR);
         let experience_dir = CONTENT_DIR.get_dir("experience").unwrap();
         let experience = get_content_map(experience_dir).unwrap();
 
@@ -185,6 +187,6 @@ mod test {
             hardware_projects,
             software_projects,
         };
-        log::debug!("Site Content: {site_content:#?}")
+        tracing::debug!("Site Content: {site_content:#?}")
     }
 }

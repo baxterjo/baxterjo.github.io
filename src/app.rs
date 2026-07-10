@@ -1,7 +1,7 @@
 use crate::content::SiteContent;
 use crate::router::Route;
 use dioxus::prelude::*;
-use log::info;
+use tracing::info;
 
 // create a component that renders a div with the text "Hello, world!"
 pub fn app() -> Element {

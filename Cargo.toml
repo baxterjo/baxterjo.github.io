@@ -7,8 +7,8 @@ edition = "2021"
 
 [dependencies]
 dioxus = { version = "0.7", features = ["router", "document"] }
-log = "0.4.20"
-wasm-logger = "0.2.0"
+tracing = "0.1.40"
+tracing-wasm = "0.2.1"
 toml = "0.8.8"
 serde = { version = "1.0.194", features = ["derive"] }
 walkdir = "2.4.0"
@@ -21,7 +21,7 @@ web-sys = { version = "0.3.66", features = ["Window", "Document", "EventTarget"]
 wasm-bindgen = "0.2.100"
 
 [dev-dependencies]
-env_logger = "0.10.1"
+tracing-subscriber = { version = "0.3.18", features = ["env-filter"] }
 
 [features]
 default = ["web"]

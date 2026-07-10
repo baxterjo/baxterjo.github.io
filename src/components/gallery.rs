@@ -2,8 +2,8 @@ use crate::components::Container;
 use crate::content::{ContentSegment, SiteContent};
 use crate::router::Route;
 use dioxus::prelude::*;
-use log::debug;
 use toml::value::Date;
+use tracing::debug;
 
 #[derive(Debug, Clone, PartialEq)]
 pub enum GalleryType {
