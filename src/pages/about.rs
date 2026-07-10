@@ -1,3 +1,4 @@
+use crate::components::{Container, HeaderWrap};
 use crate::markdown::Markdown;
 use dioxus::prelude::*;
 
@@ -10,18 +11,15 @@ const ABOUT_MD: &str = include_str!(concat!(
 pub fn About() -> Element {
     rsx! {
         AboutHeaderWrap {}
-        div { class: "container-lg",
-            div { class: "row justify-content-center mt-5",
-                div { class: "col-lg-5",
-                    img {
-                        class: "img-fluid",
-                        src: "/img/about/headshot.jpeg",
-                    }
-
+        Container {
+            div { class: "mt-5 flex justify-center",
+                div { class: "w-full lg:w-[41.6667%]",
+                    img { class: "h-auto max-w-full", src: "/img/about/headshot.jpeg" }
                 }
+
             }
-            div { class: "row justify-content-center my-3",
-                div { class: "col-lg-8",
+            div { class: "my-3 flex justify-center",
+                div { class: "w-full lg:w-[66.6667%]",
                     Markdown {
                         class: "content centered img-lg container",
                         content: "{ABOUT_MD}",
@@ -36,16 +34,13 @@ pub fn About() -> Element {
 #[component]
 fn AboutHeaderWrap() -> Element {
     rsx! {
-        div { id: "work-wrap-non-bs",
-            div { class: "container-lg",
-                div { class: "row justify-content-center",
-                    div { class: "col-lg-6",
-                        h4 { "SO YOU'RE CURIOUS" }
-                        h1 { "ABOUT ME" }
+        HeaderWrap {
+            bg_image: "/img/work.jpg",
+            min_height_class: "min-h-[650px]",
+            pt_class: "pt-[250px]",
+            h4 { class: "text-white text-lg font-normal", "SO YOU'RE CURIOUS" }
+            h1 { class: "text-white pt-[10px] pb-[20px] tracking-[4px] text-[50px]", "ABOUT ME" }
 
-                    }
-                }
-            }
         }
     }
 }

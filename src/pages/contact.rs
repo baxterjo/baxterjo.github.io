@@ -1,12 +1,13 @@
+use crate::components::{Container, HeaderWrap};
 use dioxus::prelude::*;
 
 #[component]
 pub fn Contact() -> Element {
     rsx! {
         ContactHeaderWrap {}
-        div { class: "py-5 bg-light",
-            div { class: "container-lg",
-                div { class: "row centered",
+        div { class: "bg-neutral-100 py-5",
+            Container {
+                div { class: "text-center",
                     p {
                         "Fill out this form or check me out on "
                         a { href: "https://www.linkedin.com/in/baxterjo", "Linkedin" }
@@ -29,14 +30,13 @@ pub fn Contact() -> Element {
 #[component]
 fn ContactHeaderWrap() -> Element {
     rsx! {
-        div { id: "contactwrap",
-            div { class: "container-lg",
-                div { class: "row justify-content-center",
-                    div { class: "col-lg-6",
-                        h4 { "INTERESTED IN WORKING WITH ME?" }
-                        h1 { "LET'S GET IN TOUCH" }
-                    }
-                }
+        HeaderWrap {
+            bg_image: "/img/contact.jpg",
+            min_height_class: "min-h-[650px]",
+            pt_class: "pt-[250px]",
+            div { class: "mx-auto w-full lg:w-1/2",
+                h4 { class: "text-white font-normal", "INTERESTED IN WORKING WITH ME?" }
+                h1 { class: "text-white pt-[10px] pb-[20px] tracking-[4px] text-[60px]", "LET'S GET IN TOUCH" }
             }
         }
     }
