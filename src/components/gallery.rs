@@ -104,10 +104,10 @@ pub fn Gallery(max_cards: Option<usize>, gallery_type: GalleryType, show_title: 
 
 #[component]
 fn GalleryCard(
-    title: ReadOnlySignal<Option<String>>,
-    img_path: ReadOnlySignal<String>,
+    title: ReadSignal<Option<String>>,
+    img_path: ReadSignal<String>,
     route_to: Route,
-    description: ReadOnlySignal<Option<String>>,
+    description: ReadSignal<Option<String>>,
 ) -> Element {
     rsx! {
         div { class: "group relative aspect-[3/2] overflow-hidden rounded border border-black/10",

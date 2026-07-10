@@ -8,9 +8,9 @@ pub struct MarkdownProps {
     #[props(default)]
     id: Signal<String>,
     #[props(default)]
-    class: ReadOnlySignal<String>,
+    class: ReadSignal<String>,
 
-    content: ReadOnlySignal<String>,
+    content: ReadSignal<String>,
 }
 
 /// Render some text as markdown.
