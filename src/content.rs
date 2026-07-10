@@ -1,7 +1,7 @@
 use crate::errors::WebAppError;
 use anyhow::Result;
 use include_dir::{include_dir, Dir, DirEntry};
-use log::{debug, error};
+use log::error;
 use serde::Deserialize;
 use std::collections::HashMap;
 use toml::value::Datetime;
@@ -74,41 +74,35 @@ impl Default for SiteContent {
     }
 }
 
+const FRONTMATTER_DELIMITER: &str = "+++\n";
+
 impl ContentSegment {
-    pub fn try_new(content_segment_dir: &Dir) -> Result<ContentSegment> {
-        debug!("Fetching content segment from: {:#?}", content_segment_dir);
-        let mut config_path = content_segment_dir.path().to_path_buf();
-        config_path.push("config.toml");
-        let config_file =
-            content_segment_dir
-                .get_file(&config_path)
-                .ok_or(WebAppError::FileNotExist(format!(
-                    "{}",
-                    config_path.display()
-                )))?;
+    pub fn try_from_source(source: &str) -> Result<ContentSegment> {
+        let after_open = source.strip_prefix(FRONTMATTER_DELIMITER).ok_or_else(|| {
+            WebAppError::NotValidConfig(
+                "File does not start with a `+++` frontmatter delimiter".to_string(),
+            )
+        })?;
 
-        let config: ContentConfig = toml::from_str(
-            config_file
-                .contents_utf8()
-                .ok_or(WebAppError::NotValidConfig("Not UTF-8 file".to_string()))?,
-        )?;
+        let (frontmatter, markdown) = after_open
+            .split_once(FRONTMATTER_DELIMITER)
+            .ok_or_else(|| {
+                WebAppError::NotValidConfig(
+                    "No closing `+++` frontmatter delimiter found".to_string(),
+                )
+            })?;
 
-        let mut markdown_path = content_segment_dir.path().to_path_buf();
-        markdown_path.push("content.md");
-        let markdown_file =
-            content_segment_dir
-                .get_file(&markdown_path)
-                .ok_or(WebAppError::FileNotExist(format!(
-                    "{}",
-                    markdown_path.display()
-                )))?;
-
-        let markdown: String = markdown_file
-            .contents_utf8()
-            .ok_or(WebAppError::NotValidConfig("Not UTF-8 file".to_string()))?
-            .to_string();
+        let config: ContentConfig = toml::from_str(frontmatter)?;
+        let markdown = markdown.trim_start_matches('\n').to_string();
 
         Ok(ContentSegment { config, markdown })
+    }
+
+    fn try_from_file(file: &include_dir::File) -> Result<ContentSegment> {
+        let source = file
+            .contents_utf8()
+            .ok_or(WebAppError::NotValidConfig("Not UTF-8 file".to_string()))?;
+        Self::try_from_source(source)
     }
 }
 
@@ -116,9 +110,13 @@ fn get_content_map(content_type_path: &Dir) -> Result<HashMap<String, ContentSeg
     let mut output: HashMap<String, ContentSegment> = HashMap::new();
     for entry in content_type_path.entries() {
         match entry {
-            DirEntry::Dir(dir) => {
+            DirEntry::File(file) => {
                 let path = entry.path();
-                let segment = match ContentSegment::try_new(dir) {
+                if path.extension().and_then(|ext| ext.to_str()) != Some("md") {
+                    continue;
+                }
+
+                let segment = match ContentSegment::try_from_file(file) {
                     Ok(x) => x,
                     Err(err) => {
                         log::error!(
@@ -148,7 +146,7 @@ fn get_content_map(content_type_path: &Dir) -> Result<HashMap<String, ContentSeg
                 let content_id = encode(&content_id).into_owned();
                 output.insert(content_id, segment);
             }
-            DirEntry::File(_file) => {}
+            DirEntry::Dir(_dir) => {}
         }
     }
     Ok(output)

@@ -1,3 +1,11 @@
++++
+title = "Apricity Consulting"
+thumbnail = "/img/experience/apricity.png"
+description = "February 2018 - September 2021"
+date_added = 2021-09-01
+priority_level = 0
++++
+
 Intern: February 2018 - June 2020
 
 Full Time: June 2020 - September 2021

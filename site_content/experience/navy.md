@@ -1,3 +1,11 @@
++++
+title = "US Navy and US Navy Reserves"
+thumbnail = "/img/experience/navy/us_navy.png"
+description = "December 2010 - June 2020"
+date_added = 2016-10-13
+priority_level = 0
++++
+
 Being in the Navy was a great experience for me. I got to travel the world, I lived in Japan for three years, and I got my education paid for. I also picked up a few skills that easily cross industry boundries.
 
 #### Skills Learned

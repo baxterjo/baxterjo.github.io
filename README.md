@@ -10,7 +10,7 @@ Pushes to `main` trigger a GitHub Actions workflow (`.github/workflows/deploy.ym
 
 ## Adding Content
 
-To add a new page to the site in the `about`, `experience`, or `projects` tree in the website, add a new content directory to the corresponding location in the `site_content` directory.
+To add a new page to the site in the `experience` or `projects` tree in the website, add a new Markdown file to the corresponding location in the `site_content` directory. The file should start with a `+++`-delimited TOML frontmatter block (`title`, `thumbnail`, `description`, `date_added`, `priority_level`) followed by the page content in Markdown. See `site_content/content_template.md` for an example.
 
 ### Images and Thumbnails
 

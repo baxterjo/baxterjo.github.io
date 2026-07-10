@@ -1,3 +1,11 @@
++++
+title = "Persistance of Vision Wand"
+thumbnail = "/img/hardware_projects/pov_wand/pov1.jpg"
+description = "A light strip that leverages persistance of vision to display a message."
+date_added = 2024-01-02
+priority_level = 1
++++
+
 
 #### ABOUT THE PROJECT
 
