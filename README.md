@@ -2,14 +2,7 @@
 
 ## Setup
 
-Styling uses [Tailwind CSS](https://tailwindcss.com/) via the standalone CLI binary (no Node/npm required). Download it to `bin/tailwindcss`:
-
-```sh
-curl -sL "https://github.com/tailwindlabs/tailwindcss/releases/latest/download/tailwindcss-<platform>" -o bin/tailwindcss
-chmod +x bin/tailwindcss
-```
-
-Replace `<platform>` per the [Tailwind CLI install docs](https://tailwindcss.com/docs/installation/tailwind-cli) (e.g. `macos-arm64`, `linux-x64`, `windows-x64.exe`). `just build` and `just serve_local` both compile `input.css` to `public/css/tailwind.css` automatically.
+Styling uses [Tailwind CSS](https://tailwindcss.com/) via the standalone CLI binary (no Node/npm required). Run `just setup-dev` to download it to `bin/tailwindcss` (macOS/Linux, arm64/x64). `just build` and `just serve-local` both compile `input.css` to `public/css/tailwind.css` automatically.
 
 ## Deploying
 

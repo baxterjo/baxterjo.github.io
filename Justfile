@@ -1,11 +1,27 @@
 # UTILS
-setup_hooks:
-    cp -R hooks/pre-commit .git/hooks/pre-commit
+install-tailwind:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    if [ -x bin/tailwindcss ]; then
+        echo "tailwindcss already installed at bin/tailwindcss"
+        exit 0
+    fi
+    case "$(uname -s)" in
+        Darwin) os=macos ;;
+        Linux) os=linux ;;
+        *) echo "Unsupported OS: $(uname -s)" >&2; exit 1 ;;
+    esac
+    case "$(uname -m)" in
+        arm64|aarch64) arch=arm64 ;;
+        x86_64|amd64) arch=x64 ;;
+        *) echo "Unsupported architecture: $(uname -m)" >&2; exit 1 ;;
+    esac
+    mkdir -p bin
+    curl -fsSL "https://github.com/tailwindlabs/tailwindcss/releases/latest/download/tailwindcss-${os}-${arch}" -o bin/tailwindcss
+    chmod +x bin/tailwindcss
 
 # JOBS
-setup_dev: setup_hooks
-
-pre_commit: test
+setup-dev: install-tailwind
 
 test:
     cargo test
@@ -22,6 +38,6 @@ build: clean tailwind
     mv dist/public/* dist
     cp dist/index.html dist/404.html
 
-serve_local: tailwind
+serve-local: tailwind
     ./bin/tailwindcss -i ./input.css -o ./public/css/tailwind.css --watch &
     dx serve --hot-reload
