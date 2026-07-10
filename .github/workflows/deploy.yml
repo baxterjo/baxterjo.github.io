@@ -28,10 +28,11 @@ jobs:
 
       - uses: extractions/setup-just@v2
 
+      - name: Install tailwind-cli
+        run: just install-tailwind
+
       - name: Install dioxus-cli
         run: cargo install dioxus-cli --version 0.7.9 --locked
-
-      - run: just install-tailwind
 
       - run: just build
 
