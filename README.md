@@ -9,7 +9,7 @@ curl -sL "https://github.com/tailwindlabs/tailwindcss/releases/latest/download/t
 chmod +x bin/tailwindcss
 ```
 
-Replace `<platform>` per the [Tailwind CLI install docs](https://tailwindcss.com/docs/installation/tailwind-cli) (e.g. `macos-arm64`, `linux-x64`, `windows-x64.exe`). `make build` and `make serve_local` both compile `input.css` to `public/css/tailwind.css` automatically.
+Replace `<platform>` per the [Tailwind CLI install docs](https://tailwindcss.com/docs/installation/tailwind-cli) (e.g. `macos-arm64`, `linux-x64`, `windows-x64.exe`). `just build` and `just serve_local` both compile `input.css` to `public/css/tailwind.css` automatically.
 
 ## Adding Content
 
