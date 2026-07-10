@@ -24,16 +24,16 @@ pub fn NavBar() -> Element {
                             i { class: "fa fa-bars" }
                         }
                         Link {
-                            class: "ml-2 font-bold text-[#1abc9c] hover:text-[#1abc9c]",
+                            class: "ml-2 text-lg font-bold text-[#1abc9c] hover:text-[#1abc9c]",
                             to: Route::Home {},
                             "JORDAN BAXTER"
                         }
                     }
                     ul {
                         class: if menu_open() {
-                            "flex w-full flex-col lg:ml-auto lg:w-auto lg:flex-row lg:items-center"
+                            "m-0 flex w-full list-none flex-col p-0 lg:ml-auto lg:w-auto lg:flex-row lg:items-center"
                         } else {
-                            "hidden w-full flex-col lg:ml-auto lg:flex lg:w-auto lg:flex-row lg:items-center"
+                            "m-0 hidden w-full list-none flex-col p-0 lg:ml-auto lg:flex lg:w-auto lg:flex-row lg:items-center"
                         },
                         li {
                             NavLink { route_to: Route::Home {} }
