@@ -275,6 +275,7 @@ dependencies = [
  "toml",
  "urlencoding",
  "walkdir",
+ "wasm-bindgen",
  "wasm-logger",
  "web-sys",
 ]
