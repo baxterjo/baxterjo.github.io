@@ -31,6 +31,7 @@ jobs:
             ${{ hashFiles('Cargo.toml') }}
             ${{ steps.toolchain.outputs.cachekey }}
             ${{ github.ref_name }}
+          cache-on-failure: true
 
       - uses: extractions/setup-just@v2
 
