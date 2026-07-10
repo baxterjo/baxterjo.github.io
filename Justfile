@@ -11,19 +11,16 @@ test:
     cargo test
 
 clean:
-    rm -rf docs/*
+    rm -rf dist/*
     cargo clean
-
-all: clean build
-    mv docs/public/* docs
-    cp docs/index.html docs/404.html
-    git add docs/404.html
 
 tailwind:
     ./bin/tailwindcss -i ./input.css -o ./public/css/tailwind.css
 
-build: tailwind
+build: clean tailwind
     dx bundle --release
+    mv dist/public/* dist
+    cp dist/index.html dist/404.html
 
 serve_local: tailwind
     ./bin/tailwindcss -i ./input.css -o ./public/css/tailwind.css --watch &

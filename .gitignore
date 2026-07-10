@@ -2,3 +2,4 @@
 /node_modules
 /bin/tailwindcss
 /public/css/tailwind.css
+/dist
