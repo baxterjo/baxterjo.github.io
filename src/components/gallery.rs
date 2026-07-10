@@ -1,3 +1,4 @@
+use crate::components::Container;
 use crate::content::{ContentSegment, SiteContent};
 use crate::router::Route;
 use dioxus::prelude::*;
@@ -88,16 +89,14 @@ pub fn Gallery(max_cards: Option<usize>, gallery_type: GalleryType, show_title: 
     });
 
     rsx! {
-        div { class: "py-5 bg-light",
-            div { class: "container-lg",
-                div { class: "row centered",
+        div { class: "bg-neutral-100 py-5",
+            Container {
+                div { class: "text-center",
                     h2 { "{gallery_title}" }
                 }
-                div { class: "row",
-                    div { class: "card-group justify-content-left", {cards_rendered} }
+                div { class: "mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3",
+                    {cards_rendered}
                 }
-            
-
             }
         }
     }
@@ -111,13 +110,16 @@ fn GalleryCard(
     description: ReadOnlySignal<Option<String>>,
 ) -> Element {
     rsx! {
-        div { class: "col-md-4 col-sm-6 py-1",
-            div { class: "card h-100 bg-light text-white mx-1",
-                img { class: "card-img h-100", src: img_path }
-                Link { class: "card-img-overlay", to: route_to.clone(),
-                    h5 { class: "card-title", title }
-                    p { class: "card-text", {description} }
+        div { class: "group relative aspect-[3/2] overflow-hidden rounded border border-black/10",
+            img { class: "h-full w-full object-cover", src: img_path }
+            Link {
+                class: "absolute inset-0 flex flex-col items-center justify-center p-4 text-center transition-colors group-hover:bg-white/70",
+                to: route_to.clone(),
+                h5 {
+                    class: "text-white [text-shadow:_-1px_0_black,_0_1px_black,_1px_0_black,_0_-1px_black]",
+                    title,
                 }
+                p { class: "text-transparent transition-colors group-hover:text-black", {description} }
             }
         }
     }

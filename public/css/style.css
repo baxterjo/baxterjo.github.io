@@ -5,6 +5,13 @@
 * License: https://templatemag.com/license/
 */
 
+/* Tailwind emits its utilities inside `@layer utilities`; unlayered CSS
+   always wins over layered CSS regardless of specificity, so this file
+   must join the same layer stack (declared by tailwind.css, which loads
+   first) or its plain tag/id selectors would silently beat classes like
+   `text-white` applied in rsx!. */
+@layer base {
+
 /* ==========================================================================
    Base Styles, Bootstrap Modifications & Fonts Import
    ========================================================================== */
@@ -69,6 +76,31 @@ h5,
 h6 {
   font-weight: 700;
   color: #4a4a4a;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding-left: 2rem;
+}
+
+blockquote {
+  margin: 0 0 1rem;
 }
 
 a:link { 
@@ -82,29 +114,6 @@ a:hover {
 } 
 a:active { 
   text-decoration: none; 
-}
-
-.card-img-overlay:hover {
-  background-color: rgba(255, 255, 255, 0.7);
-}
-
-.card-img-overlay:hover > .card-text {
-  color: black;
-}
-
-.card-img-overlay > .card-text {
-  color: rgba(0, 0, 0, 0);
-}
-
-.card-img {
-  object-fit: cover;
-}
-
-
-.card-title {
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-  color: white !important;
-  text-align: center;
 }
 
 .content p>img {
@@ -126,95 +135,6 @@ a:active {
   table-layout: fixed;
 }
 
-
-.navbar-brand {
-  font-weight: 700;
-}
-
-.navbar-dark .navbar-brand,
-.navbar-dark .navbar-brand:hover {
-  color: #1abc9c;
-}
-
-.navbar-dark {
-  border-color: transparent;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.navbar-dark .navbar-nav>.active>a,
-.navbar-dark .navbar-nav>.active>a:hover,
-.navbar-dark .navbar-nav>.active>a:focus {
-  color: #1abc9c;
-  background-color: transparent;
-}
-
-.navbar-dark .navbar-nav>li>a {
-  color: #fff;
-}
-
-.navbar-dark .navbar-nav>li>a:hover,
-.navbar-dark .navbar-nav>li>a:focus {
-  color: #1abc9c;
-}
-
-.navbar-dark .navbar-toggle {
-  border: none;
-  border-color: #fff;
-}
-
-.navbar-dark .navbar-toggle:hover {
-  background: #666;
-}
-
-.navbar-dark .navbar-toggle .icon-bar {
-  background-color: #fff;
-}
-
-/* ==========================================================================
-   Wrap Sections
-   ========================================================================== */
-
-#home-page-header-wrap-non-bs {
-  background: url(/img/back.jpg) no-repeat center top;
-  margin-top: -70px;
-  padding-top: 250px;
-  text-align: center;
-  background-attachment: relative;
-  background-position: center center;
-  min-height: 650px;
-  width: 100%;
-
-  -webkit-background-size: 100%;
-
-  -o-background-size: 100%;
-  background-size: 100%;
-
-  -webkit-background-size: cover;
- 
-  -o-background-size: cover;
-  background-size: cover;
-}
-
-#home-page-header-wrap-non-bs h1 {
-  color: #ffffff;
-  padding-top: 10px;
-  padding-bottom: 20px;
-  letter-spacing: 4px;
-  font-size: 70px;
-  font-weight: bold;
-}
-
-#home-page-header-wrap-non-bs h4 {
-  font-weight: 400;
-  color: #ffffff;
-  font-size: 1.125rem;
-}
-
-@media (max-width: 768px) {
-  #home-page-header-wrap-non-bs {
-    padding-top: 180px;
-  }
-}
 
 /* #social {
   padding-top: 50px;
@@ -242,80 +162,6 @@ a:active {
   margin-left: 10px;
 }
 
-#work-wrap-non-bs {
-  background: url(/img/work.jpg) no-repeat center top;
-  margin-top: -70px;
-  padding-top: 250px;
-  text-align: center;
-  background-attachment: relative;
-  background-position: center center;
-  min-height: 650px;
-  width: 100%;
-
-  -webkit-background-size: 100%;
-  -o-background-size: 100%;
-  background-size: 100%;
-
-  -webkit-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
-#work-wrap-non-bs h1 {
-  color: #ffffff;
-  padding-top: 10px;
-  padding-bottom: 20px;
-  letter-spacing: 4px;
-  font-size: 50px;
-  font-weight: bold;
-}
-
-#work-wrap-non-bs h4 {
-  font-weight: 400;
-  color: #ffffff;
-  font-size: 1.125rem;
-
-}
-
-#aboutwrap {
-  background: url(/img/aboutblackandwhite.JPG) no-repeat center top;
-  margin-top: -70px;
-  padding-top: 250px;
-  text-align: center;
-  background-attachment: relative;
-  background-position: center center;
-  min-height: 550px;
-  width: 100%;
-
-  -webkit-background-size: 100%;
-  -o-background-size: 100%;
-  background-size: 100%;
-
-  -webkit-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
-#projectswrap {
-  background: url(/img/work.jpg) no-repeat center top;
-  margin-top: -70px;
-  padding-top: 250px;
-  text-align: center;
-  background-attachment: relative;
-  background-position: center center;
-  min-height: 550px;
-  width: 100%;
-
-  -webkit-background-size: 100%;
-  -o-background-size: 100%;
-  background-size: 100%;
-
-  -webkit-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
-
 /* Gallery */
 .gallery {
   margin-top: 30px;
@@ -327,33 +173,6 @@ a:active {
 
 
 /* Contact Form */
-
-#contactwrap {
-  background: url(/img/contact.jpg) no-repeat center top;
-  margin-top: -70px;
-  padding-top: 250px;
-  text-align: center;
-  background-attachment: relative;
-  background-position: center center;
-  min-height: 650px;
-  width: 100%;
-  background-size: 100%;
-  background-size: cover;
-}
-
-#contactwrap h1 {
-  color: #ffffff;
-  padding-top: 10px;
-  padding-bottom: 20px;
-  letter-spacing: 4px;
-  font-size: 60px;
-  font-weight: bold;
-}
-
-#contactwrap h4 {
-  font-weight: 400;
-  color: #ffffff
-}
 
 #contact {
   padding: 40px 0;
@@ -494,3 +313,5 @@ a:active {
   width: 50px;
   height: auto;
 }
+
+} /* @layer base */

@@ -1,6 +1,7 @@
 pub mod project_detail;
 use dioxus::prelude::*;
 
+use crate::components::HeaderWrap;
 use crate::components::gallery::{Gallery, GalleryType};
 
 #[component]
@@ -15,14 +16,13 @@ pub fn ProjectsRoot() -> Element {
 #[component]
 fn ProjectHeaderWrap() -> Element {
     rsx! {
-        div { id: "work-wrap-non-bs",
-            div { class: "container-lg",
-                div { class: "row justify-content-center",
-                    div { class: "col-lg-6",
-                        h4 { "TAKE A LOOK AT MY" }
-                        h1 { "PERSONAL PROJECTS" }
-                    }
-                }
+        HeaderWrap {
+            bg_image: "/img/work.jpg",
+            min_height_class: "min-h-[650px]",
+            pt_class: "pt-[250px]",
+            div { class: "mx-auto w-full lg:w-1/2",
+                h4 { class: "text-white text-lg font-normal", "TAKE A LOOK AT MY" }
+                h1 { class: "text-white pt-[10px] pb-[20px] tracking-[4px] text-[50px]", "PERSONAL PROJECTS" }
             }
         }
     }

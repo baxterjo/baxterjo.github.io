@@ -28,12 +28,17 @@ all: clean build
 	mv docs/public/* docs
 	cp docs/index.html docs/404.html
 
+.PHONY: tailwind
+tailwind:
+	./bin/tailwindcss -i ./input.css -o ./public/css/tailwind.css
+
 .PHONY: build
-build:
+build: tailwind
 	dx bundle --release
 
 
 .PHONY: serve_local
-serve_local:
+serve_local: tailwind
+	./bin/tailwindcss -i ./input.css -o ./public/css/tailwind.css --watch &
 	dx serve --hot-reload
 

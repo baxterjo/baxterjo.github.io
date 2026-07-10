@@ -1,4 +1,5 @@
 use crate::components::page_not_found::PageNotFound;
+use crate::components::{Container, HeaderWrap};
 use crate::content::SiteContent;
 use crate::markdown::Markdown;
 use dioxus::prelude::*;
@@ -18,9 +19,9 @@ pub fn ExperienceDetail(name: String) -> Element {
 
             rsx! {
                 ExperienceDetailHeaderWrap { title: "{title}", description: "{description}" }
-                div { class: "container-lg",
-                    div { class: "row justify-content-center mt-3",
-                        div { class: "col-lg-8",
+                Container {
+                    div { class: "mt-3 flex justify-center",
+                        div { class: "w-full lg:w-[66.6667%]",
                             Markdown {
                                 class: "content centered img-lg",
                                 content: "{md_content}",
@@ -44,14 +45,13 @@ fn ExperienceDetailHeaderWrap(
     description: ReadOnlySignal<String>,
 ) -> Element {
     rsx! {
-        div { id: "work-wrap-non-bs",
-            div { class: "container-lg",
-                div { class: "row justify-content-center",
-                    div { class: "col-lg-6",
-                        h1 { "{title}" }
-                        h4 { "{description}" }
-                    }
-                }
+        HeaderWrap {
+            bg_image: "/img/work.jpg",
+            min_height_class: "min-h-[650px]",
+            pt_class: "pt-[250px]",
+            div { class: "mx-auto w-full lg:w-1/2",
+                h1 { class: "text-white pt-[10px] pb-[20px] tracking-[4px] text-[50px]", "{title}" }
+                h4 { class: "text-white text-lg font-normal", "{description}" }
             }
         }
     }
