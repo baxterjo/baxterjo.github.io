@@ -6,7 +6,7 @@ use crate::content::SiteContent;
 use crate::markdown::Markdown;
 
 #[component]
-fn ProjectDetail(title: ReadOnlySignal<String>, content: ReadOnlySignal<String>) -> Element {
+fn ProjectDetail(title: ReadSignal<String>, content: ReadSignal<String>) -> Element {
     rsx! {
         ProjectDetailHeaderWrap { title: "{title}" }
         Container {
@@ -69,7 +69,7 @@ pub fn SoftwareProjectDetail(name: String) -> Element {
 }
 
 #[component]
-fn ProjectDetailHeaderWrap(title: ReadOnlySignal<String>) -> Element {
+fn ProjectDetailHeaderWrap(title: ReadSignal<String>) -> Element {
     rsx! {
         HeaderWrap {
             bg_image: "/img/work.jpg",

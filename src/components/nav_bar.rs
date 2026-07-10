@@ -2,7 +2,7 @@ use crate::capitalize;
 use crate::components::Container;
 use crate::router::Route;
 use dioxus::prelude::*;
-use log::debug;
+use tracing::debug;
 use wasm_bindgen::closure::Closure;
 use wasm_bindgen::JsCast;
 

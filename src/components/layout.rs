@@ -2,7 +2,7 @@ use crate::capitalize;
 use crate::components::{nav_bar::NavBar, Footer};
 use crate::router::Route;
 use dioxus::prelude::*;
-use log::{debug, warn};
+use tracing::{debug, warn};
 
 #[component]
 pub fn Layout() -> Element {

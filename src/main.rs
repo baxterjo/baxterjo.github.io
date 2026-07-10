@@ -3,7 +3,7 @@ use baxterjo_webapp::app;
 use dioxus::prelude::*;
 
 fn main() {
-    wasm_logger::init(wasm_logger::Config::default());
+    tracing_wasm::set_as_global_default();
     // launch the web app
     launch(app::app);
 }

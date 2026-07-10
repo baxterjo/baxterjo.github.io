@@ -41,8 +41,8 @@ pub fn ExperienceDetail(name: String) -> Element {
 
 #[component]
 fn ExperienceDetailHeaderWrap(
-    title: ReadOnlySignal<String>,
-    description: ReadOnlySignal<String>,
+    title: ReadSignal<String>,
+    description: ReadSignal<String>,
 ) -> Element {
     rsx! {
         HeaderWrap {
