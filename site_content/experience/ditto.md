@@ -1,3 +1,11 @@
++++
+title = "Ditto"
+thumbnail = "/img/experience/ditto.jpg"
+description = "Augut 2024 - Present"
+date_added = 2025-05-25
+priority_level = 0
++++
+
 Ditto is an edge-native application sync service that ensures uptime for applications even without internet connectivity. With this SDK in your application you can be confident that if your internet goes out at a point of sale or on your manufacturing line, you will be able to continue operations as normal until internet is restored. At Ditto I have been a part of two very different teams, one focused on building applications for federal customers, and another on improving the networking stack of the SDK.
 
 #### Skills Learned

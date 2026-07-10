@@ -1,3 +1,11 @@
++++
+title = "Generac Clean Energy Solutions"
+thumbnail = "/img/experience/generac.png"
+description = "September 2021 - August 2024"
+date_added = 2024-01-02
+priority_level = 0
++++
+
 Apricity consulting was aquired by Generac in September of 2021. At Generac I developed applications on an embedded Linux device that serves as a gateway for a whole home battery backup system. This was a greenfield device, and allowed me to see the full lifecycle of a product from inception to completion.
 
 #### Skills Learned

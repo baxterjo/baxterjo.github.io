@@ -3,6 +3,8 @@ use crate::components::Container;
 use crate::router::Route;
 use dioxus::prelude::*;
 use log::debug;
+use wasm_bindgen::closure::Closure;
+use wasm_bindgen::JsCast;
 
 #[component]
 pub fn NavBar() -> Element {
@@ -11,9 +13,45 @@ pub fn NavBar() -> Element {
     debug!("SITE_MAP: {:?}", Route::SITE_MAP);
 
     let mut menu_open = use_signal(|| false);
+    let mut nav_hidden = use_signal(|| false);
+
+    // Collapse nav bar when scrolling down and expand when scrolling up.
+    use_effect(move || {
+        let Some(window) = web_sys::window() else {
+            return;
+        };
+        let mut last_y = window.scroll_y().unwrap_or(0.0);
+
+        let on_scroll = Closure::<dyn FnMut()>::new(move || {
+            let Some(window) = web_sys::window() else {
+                return;
+            };
+            let Ok(y) = window.scroll_y() else {
+                return;
+            };
+            if y <= 10.0 {
+                nav_hidden.set(false);
+            } else if y > last_y {
+                nav_hidden.set(true);
+            } else if y < last_y {
+                nav_hidden.set(false);
+            }
+            last_y = y;
+        });
+
+        let _ =
+            window.add_event_listener_with_callback("scroll", on_scroll.as_ref().unchecked_ref());
+        // Leak the closure so it stays alive for the life of the listener (the nav bar never unmounts).
+        on_scroll.forget();
+    });
 
     rsx! {
-        nav { class: "sticky top-0 z-50 bg-black/50",
+        nav {
+            class: if nav_hidden() && !menu_open() {
+                "sticky top-0 z-50 -translate-y-full bg-black/50 transition-transform duration-300"
+            } else {
+                "sticky top-0 z-50 translate-y-0 bg-black/50 transition-transform duration-300"
+            },
             Container {
                 div { class: "flex flex-wrap items-center justify-between py-2",
                     div { class: "flex items-center",
@@ -24,16 +62,16 @@ pub fn NavBar() -> Element {
                             i { class: "fa fa-bars" }
                         }
                         Link {
-                            class: "ml-2 font-bold text-[#1abc9c] hover:text-[#1abc9c]",
+                            class: "ml-2 text-lg font-bold text-[#1abc9c] hover:text-[#1abc9c]",
                             to: Route::Home {},
                             "JORDAN BAXTER"
                         }
                     }
                     ul {
                         class: if menu_open() {
-                            "flex w-full flex-col lg:ml-auto lg:w-auto lg:flex-row lg:items-center"
+                            "m-0 flex w-full list-none flex-col p-0 lg:ml-auto lg:w-auto lg:flex-row lg:items-center"
                         } else {
-                            "hidden w-full flex-col lg:ml-auto lg:flex lg:w-auto lg:flex-row lg:items-center"
+                            "m-0 hidden w-full list-none flex-col p-0 lg:ml-auto lg:flex lg:w-auto lg:flex-row lg:items-center"
                         },
                         li {
                             NavLink { route_to: Route::Home {} }

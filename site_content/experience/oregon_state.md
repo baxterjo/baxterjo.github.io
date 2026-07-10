@@ -1,3 +1,11 @@
++++
+title = "Oregon State University"
+thumbnail = "/img/experience/oregon_state.jpg"
+description = "January 2017 - June 2020"
+date_added = 2020-06-01
+priority_level = 0
++++
+
 Oregon State is a fantastic school with a beautiful campus. Corvallis, Oregon is a small, amazing community that I wouldn't mind being a part of again one day.
 
 #### Highlights
